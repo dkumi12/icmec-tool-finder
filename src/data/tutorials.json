@@ -1,0 +1,284 @@
+[
+  {
+    "id": "intro-hash-matching",
+    "title": "Introduction to Hash-Based CSAM Detection",
+    "duration": "20 minutes",
+    "level": "beginner",
+    "category": "CSAM Detection",
+    "summary": "Learn how cryptographic hashing enables investigators to identify known CSAM without re-viewing harmful content. Understand how PhotoDNA, NCMEC hash sets, and Project VIC fit together in a national detection ecosystem.",
+    "learningOutcomes": [
+      "Understand what a cryptographic hash is and why it enables CSAM detection",
+      "Distinguish between standard hashing (MD5/SHA) and perceptual hashing (PhotoDNA)",
+      "Know how NCMEC, IWF, and Project VIC hash sets are used by law enforcement",
+      "Understand how to submit confirmed CSAM hashes to a national database"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "What is a hash?",
+        "content": "A cryptographic hash is a fixed-length fingerprint of a file. If you run any image through a hash function (like MD5 or SHA-256), it produces a unique string of characters. Crucially, even a single changed pixel produces a completely different hash. This means you can compare a file's hash against a database of known CSAM hashes without ever viewing the actual image — the hash is the fingerprint, not the content.",
+        "tip": "Think of it like a barcode: you can scan a barcode to identify a product without having to read the label."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Standard hashing vs perceptual hashing (PhotoDNA)",
+        "content": "Standard hash functions (MD5, SHA-256) are exact — one pixel difference produces a completely different hash. This is a problem for CSAM detection because offenders often make minor edits (crop, resize, add a border) to evade detection. PhotoDNA solves this by creating a 'robust hash' that describes the visual content rather than the exact file. Two slightly different versions of the same image produce very similar PhotoDNA hashes, so both are caught. PhotoDNA is the industry standard for CSAM detection at scale.",
+        "tip": "PhotoDNA was developed by Microsoft with Dartmouth College and is provided free to law enforcement and approved NGOs."
+      },
+      {
+        "stepNumber": 3,
+        "title": "How the national hash ecosystem works",
+        "content": "NCMEC maintains the primary US CSAM hash database, which is fed by reports from Electronic Service Providers (ESPs) via the CyberTipline. The IWF maintains a similar database for the UK and shares with global partners. Project VIC provides a hash-sharing network that integrates with forensic tools like Griffeye and Cellebrite — so when you plug in a seized phone, it automatically scans against the hash database and flags known CSAM. INTERPOL's ICSE database operates at the international level, linking cases across 70+ countries.",
+        "tip": "Law enforcement can query NCMEC CyberTipline reports associated with specific hash values to find related cases and investigations."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Submitting new hashes to the national database",
+        "content": "When you identify confirmed CSAM that is not in the existing hash database, you should submit the hash to grow the database for other investigators. In the US, submit to NCMEC. In the UK, submit to IWF. Via Project VIC, your forensic tool may handle this automatically during the reporting workflow. Never submit the actual image — only the hash value. The process is designed so that real CSAM never leaves your evidence management system.",
+        "tip": "Each new confirmed hash you submit potentially prevents thousands of other investigators from having to view that content when they encounter the same file."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Limitations to understand",
+        "content": "Hash matching only works for known material — files that have already been discovered and added to a database. Completely new CSAM (first generation content) will not match any hash. AI-generated CSAM also bypasses hash detection entirely, since it has no prior hash in the database. This is why hash matching is one tool in a broader detection ecosystem, not a complete solution on its own.",
+        "tip": "The rise of AI-generated CSAM is creating a gap that hash databases cannot address — new detection methods based on image content analysis are needed."
+      }
+    ]
+  },
+  {
+    "id": "crypto-tracing-fundamentals",
+    "title": "Fundamentals of Blockchain Analysis for Investigators",
+    "duration": "45 minutes",
+    "level": "intermediate",
+    "category": "Crypto Tracing",
+    "summary": "Understand how cryptocurrency transactions work, why blockchain data is useful to investigators, and how to trace funds from a suspect wallet through mixing attempts to an exchange where real-world identity can be obtained.",
+    "learningOutcomes": [
+      "Understand the difference between UTXO-based (Bitcoin) and account-based (Ethereum) blockchains",
+      "Know how to read a basic transaction graph and identify fund flows",
+      "Understand cluster analysis and how wallets are grouped to real-world entities",
+      "Know how to identify exchange deposits and prepare a legal process request"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Why blockchain data is valuable to investigators",
+        "content": "Unlike traditional banking, cryptocurrency transactions are recorded permanently on a public ledger (the blockchain) that anyone can read. Every transaction ever made — including those by offenders — is preserved forever. Contrary to the belief that crypto is anonymous, most blockchains are pseudonymous: wallets have no name attached, but all transactions are fully visible. The investigator's job is to link a wallet address to a real-world identity.",
+        "tip": "The Bitcoin blockchain has been public since 2009 — transactions from years ago are still fully visible and traceable."
+      },
+      {
+        "stepNumber": 2,
+        "title": "UTXO model (Bitcoin) vs Account model (Ethereum)",
+        "content": "Bitcoin uses a UTXO (Unspent Transaction Output) model: when you spend Bitcoin, you consume entire previous outputs and create new ones, which is how change addresses are created. Ethereum uses an account model — like a bank balance that goes up and down. For investigators, this matters because Bitcoin transaction graphs look like webs of inputs and outputs, while Ethereum is more like a ledger of transfers between accounts. Tools like OXT are designed for UTXO analysis; Etherscan works for Ethereum.",
+        "tip": "Most CSAM-related cryptocurrency payments historically involved Bitcoin, but stablecoins (USDT, USDC) on Ethereum are increasingly used."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Reading a transaction graph",
+        "content": "A transaction graph shows wallets as nodes and transactions as arrows between them. Follow the money forward (from the suspect wallet to where funds eventually went) and backward (what funded the suspect wallet). Look for convergence points where multiple inputs combine — this may indicate a mixing service or aggregation wallet. Wide fans of outputs may indicate a payment processor distributing funds.",
+        "tip": "Tools like Breadcrumbs and Chainalysis Reactor automate graph visualisation. Even without these, a free explorer like Blockchair shows all inputs and outputs for any transaction."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Cluster analysis and entity attribution",
+        "content": "Blockchain analytics firms use heuristics (common input ownership, change address detection) to group wallets that are likely controlled by the same person or entity. They then label known entities — exchanges, darknet markets, mixers, and some criminal wallets. When your suspect wallet shows a transfer to an entity labelled 'Binance deposit' by Chainalysis, you now have a target for legal process: obtain the KYC identity records from Binance.",
+        "tip": "You do not need expensive tools for initial cluster analysis — Arkham Intelligence offers free entity labelling for many wallets."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Exchange attribution and legal process",
+        "content": "Most cryptocurrency eventually moves to a regulated exchange (Coinbase, Binance, Kraken) where users must complete KYC (Know Your Customer) identity verification. When you trace funds to an exchange deposit address, that exchange holds the name, government ID, and contact details of the account holder. Most major exchanges have law enforcement portals and will respond to legal process. Prepare your request with: wallet address, deposit transaction hash, date range, and your legal authority.",
+        "tip": "Many exchanges respond to emergency requests within 24-48 hours when there is imminent risk to a child. Document the urgency in your request."
+      },
+      {
+        "stepNumber": 6,
+        "title": "Mixing services and obfuscation",
+        "content": "Offenders sometimes use mixing services (tumblers) or privacy coins (Monero) to break the transaction trail. Mixing services pool many users' funds and redistribute scrambled amounts, making direct tracing difficult. However, mixing services themselves are often known entities and some have been seized by law enforcement. Even after mixing, heuristic cluster analysis can sometimes re-link funds. Monero is significantly harder to trace — specialist tools exist but are not publicly available.",
+        "tip": "The use of a mixing service by a suspect is itself useful evidence of consciousness of guilt and intent to evade detection."
+      }
+    ]
+  },
+  {
+    "id": "secure-investigation-environment",
+    "title": "Setting Up a Legally Defensible Investigation Environment",
+    "duration": "60 minutes",
+    "level": "intermediate",
+    "category": "Operational Security",
+    "summary": "Learn how to configure an investigation environment that protects your identity, does not contaminate evidence, and produces documentation that will withstand legal scrutiny. Covers VM isolation, evidence logging, and chain of custody for digital investigations.",
+    "learningOutcomes": [
+      "Understand why investigation isolation is necessary from both legal and operational perspectives",
+      "Configure a VM-based investigation environment with appropriate controls",
+      "Establish an evidence log that satisfies chain of custody requirements",
+      "Understand the difference between an operational VPN and Tor for different investigation purposes"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Why investigation isolation matters",
+        "content": "Without isolation, digital investigations risk two critical failures: first, your department's real IP address may be exposed to hostile actors or the suspect (who may be monitoring their own accounts); second, investigation activities may contaminate the evidence — for example, accessing a suspect account from your personal device creates logs connecting your personal identity to the investigation. Isolation prevents both problems and makes your methodology defensible in court.",
+        "tip": "A defence attorney will ask 'did you access this account from a personal or department device?' Your answer needs to be a clean 'no.'"
+      },
+      {
+        "stepNumber": 2,
+        "title": "VM setup fundamentals",
+        "content": "Create a dedicated virtual machine (using VirtualBox or VMware) on a machine that is not connected to department networks. Install a clean OS (Linux is preferred for investigation VMs). Configure the VM with no shared folders, no clipboard sharing, and no connection to personal cloud storage. Take a clean baseline snapshot before starting any investigation — this lets you reset to a known state.",
+        "tip": "Keep separate VMs for separate cases when possible. This prevents cross-case contamination and simplifies evidence documentation."
+      },
+      {
+        "stepNumber": 3,
+        "title": "VPN vs Tor — when to use each",
+        "content": "A VPN replaces your real IP with the VPN provider's IP — useful for concealing your department identity from a suspect's platform, but the VPN provider can still see your traffic and real IP. Tor routes traffic through three relays and is stronger for anonymity, but is slower and some platforms block Tor exit nodes. For dark web investigations, Tor is mandatory. For clearweb OSINT, a dedicated investigation VPN from a provider that does not log is usually sufficient. Never use your personal VPN for investigations.",
+        "tip": "Some law enforcement agencies operate dedicated VPN exit nodes — contact your national cybercrime unit to ask if this is available."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Evidence logging requirements",
+        "content": "Every action taken during a digital investigation must be timestamped and logged. Your log should record: date/time (UTC), what you accessed, what you searched for, what you observed, and what action you took as a result. This log is part of the legal record and may be submitted as evidence. Use UTC timestamps to avoid timezone confusion in cross-border cases.",
+        "tip": "Automated screen recording (with timestamps burned into the video) is increasingly accepted as supplementary evidence documentation in some jurisdictions."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Post-session evidence export and storage",
+        "content": "At the end of each session, export all collected evidence to your agency's evidence management system before shutting down the VM. Do not store evidence solely in the VM — if the VM is destroyed or becomes corrupted, the evidence is lost. Hash all exported files on export. Label all files with case number, date, and investigator ID. Never store CSAM evidence on personal devices or unapproved cloud storage.",
+        "tip": "Evidence that cannot be authenticated (missing hash, missing chain of custody) may be inadmissible in court."
+      }
+    ]
+  },
+  {
+    "id": "forensic-linguistics-basics",
+    "title": "Forensic Linguistics: Identifying Grooming Patterns in Text",
+    "duration": "30 minutes",
+    "level": "beginner",
+    "category": "Forensic Linguistics",
+    "summary": "An introduction to how forensic linguistics is used in child exploitation investigations — from analysing grooming language patterns in chat logs to matching anonymous texts to known offenders via linguistic fingerprints.",
+    "learningOutcomes": [
+      "Understand what forensic linguistics is and how it applies to online exploitation cases",
+      "Identify common grooming language patterns in chat logs",
+      "Understand the concept of a linguistic fingerprint and authorship analysis",
+      "Know when to involve a forensic linguistics expert and what they can offer"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "What is forensic linguistics?",
+        "content": "Forensic linguistics is the scientific analysis of language as evidence. In child exploitation cases, it is used in three main ways: (1) analysing chat logs for grooming patterns, (2) authorship analysis — determining whether a known suspect wrote an anonymous message — and (3) linguistic legend building — helping undercover officers create and maintain a believable text identity when interacting with suspects.",
+        "tip": "Forensic linguistics evidence has been accepted in courts in the UK, US, Australia, and the EU. It is strongest when used to corroborate other evidence, not as a standalone identifier."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Grooming language patterns to recognise",
+        "content": "Grooming typically follows a predictable linguistic progression: rapport building (interest in the child's life, compliments, sharing personal details), desensitisation (gradual introduction of sexual topics, presented as normal), isolation (encouraging secrecy, undermining trust in parents), and coercion (explicit requests, threats, or guilt-tripping). These patterns appear across different languages and platforms. Recognising the stage of grooming in a chat log helps assess urgency.",
+        "tip": "The NCMEC and CEOP both provide grooming language training materials for investigators — contact them directly for access."
+      },
+      {
+        "stepNumber": 3,
+        "title": "What is a linguistic fingerprint?",
+        "content": "Every person has a unique 'idiolect' — their personal version of a language, shaped by their background, education, regional dialect, and habits. This shows up in text as patterns: spelling preferences, punctuation habits, vocabulary choices, sentence length, and common phrases. Forensic linguists can compare an anonymous message against known writing samples from a suspect to assess whether they are likely the same author. This is the basis of tools like PrevBOT.",
+        "tip": "The more text you have from a suspect, the stronger the linguistic comparison. Short messages alone are usually insufficient for reliable authorship analysis."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Collecting text evidence correctly",
+        "content": "For linguistic analysis to work, text evidence must be collected in its original form — screenshot or native export from the platform. Do not manually retype chat logs, as this introduces errors that corrupt the analysis. Preserve the full context: usernames, timestamps, platform name, and any emojis or special characters. Truncated logs (where the beginning of a conversation is missing) weaken any linguistic analysis.",
+        "tip": "Most platforms have a built-in export or data download feature. Request data exports via the platform's law enforcement portal rather than screenshotting where possible."
+      },
+      {
+        "stepNumber": 5,
+        "title": "When to involve a forensic linguistics expert",
+        "content": "Involve a forensic linguist when: you need to link an anonymous communication to a known suspect, you need to assess the age or background of an unknown author, you are building an undercover operation and need help creating a linguistically consistent persona, or when grooming pattern evidence needs to be presented expertly in court. Forensic linguistics is a specialist field — do not attempt formal authorship analysis as a non-expert without guidance.",
+        "tip": "Most national cybercrime units have access to forensic linguists, or can refer you to university forensic linguistics departments that work with law enforcement."
+      }
+    ]
+  },
+  {
+    "id": "username-osint-techniques",
+    "title": "Systematic OSINT Investigation from a Username",
+    "duration": "25 minutes",
+    "level": "beginner",
+    "category": "OSINT",
+    "summary": "Learn a systematic approach to building a digital profile from a single username. Covers cross-platform enumeration, photo analysis, email pivoting, and how to avoid leaving footprints during open-source investigation.",
+    "learningOutcomes": [
+      "Apply a systematic methodology to username-based OSINT investigation",
+      "Understand which tools support cross-platform username enumeration",
+      "Perform basic reverse image searches and interpret the results",
+      "Avoid common operational security mistakes that alert a suspect"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Document before you search",
+        "content": "Before running any tool, document exactly what you have: the exact username (including case and special characters), the platform it was found on, the date it was observed, and how it came to your attention (victim report, tip, undercover observation). This starting record is the foundation of your evidence log and must be preserved exactly as received — do not normalise or change the spelling.",
+        "tip": "Many suspects use slight variations of their main username across platforms (adding numbers, underscores). Note any variations you observe."
+      },
+      {
+        "stepNumber": 2,
+        "title": "Run cross-platform username enumeration",
+        "content": "Use an automated tool to check the username (and its common variations) across hundreds of platforms simultaneously. These tools check whether an account with that username exists — they do not log in or interact with accounts. A positive match shows the suspect is active on that platform, expanding your intelligence picture and potentially revealing platforms not known from the original case.",
+        "tip": "Run searches in your investigation VM with the VPN active. Some platforms log visitors to profile pages — use the tool rather than manually visiting each URL."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Archive positive matches before proceeding",
+        "content": "For every positive username match, immediately archive the public profile page (using a tool like archive.org/save or a screenshot with timestamp). Suspects sometimes delete accounts rapidly when they sense investigation interest. Archived content is timestamped evidence that persists even if the original account is deleted.",
+        "tip": "Use a preservation service that generates a certificate of authenticity for archived content — this strengthens admissibility."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Analyse profile photos",
+        "content": "Download any profile images and run reverse image searches. Look for: the same image used on other platforms (confirming account linkage), the image appearing on unrelated websites (indicating the account uses a stolen photo), or the same face appearing under a different name on another platform. Note any background details in photos — locations, objects, or text that provide context.",
+        "tip": "Be cautious about storing CSAM-adjacent images on investigation systems. Only download images that are clearly public profile photos, not content from private or restricted areas."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Pivot on identifiers",
+        "content": "If an email address, phone number, or other identifier is visible on any profile, use it as a new pivot point to search for additional accounts. An email address can be searched across platforms, run against breach databases (if legally authorised), and used to identify the approximate account creation date by analysing when it appears in historical data.",
+        "tip": "Treat email addresses from public profiles as open-source intelligence. Breach database queries may require specific legal authority depending on your jurisdiction."
+      }
+    ]
+  },
+  {
+    "id": "dark-web-basics",
+    "title": "Dark Web Investigation Fundamentals for Law Enforcement",
+    "duration": "40 minutes",
+    "level": "intermediate",
+    "category": "Dark Web",
+    "summary": "Understand the structure of the dark web, how Tor hidden services work, the legal framework for dark web investigations, and how to conduct basic dark web OSINT safely and defensibly.",
+    "learningOutcomes": [
+      "Understand the difference between the clear web, deep web, and dark web",
+      "Know how Tor hidden services (.onion) work technically",
+      "Understand the legal framework for dark web access in an investigation context",
+      "Conduct basic dark web discovery using safe, clearweb tools before entering Tor"
+    ],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Clear web, deep web, and dark web — what's different?",
+        "content": "The clear web is what you access normally: indexed by Google, publicly visible. The deep web is content not indexed by search engines but still accessible via the normal internet — this includes most email inboxes, private databases, and password-protected sites. The dark web is a specific overlay network requiring special software (Tor) to access. Dark web content is hosted on .onion domains that are only reachable via Tor. Approximately 90% of dark web traffic is mundane privacy use; the criminal portion is a subset.",
+        "tip": "Accessing the deep web (e.g. a login-required platform) does not require Tor. The dark web and deep web are often confused — they are distinct things."
+      },
+      {
+        "stepNumber": 2,
+        "title": "How Tor hidden services work",
+        "content": "Tor (The Onion Router) routes your connection through at least three relays (nodes), encrypting traffic at each layer so no single relay knows both who you are and what you are accessing. A .onion hidden service runs a server connected to the Tor network without revealing its IP address. To access a .onion site, you use the Tor Browser — your traffic is anonymised and the server's location is also concealed. This mutual anonymity is what makes dark web sites hard to take down.",
+        "tip": "Despite its protections, Tor is not infallible. Law enforcement has successfully deanonymised .onion sites through server misconfigurations — which is exactly what tools like OnionScan exploit."
+      },
+      {
+        "stepNumber": 3,
+        "title": "Legal framework for dark web investigations",
+        "content": "In most jurisdictions, passively viewing publicly accessible dark web content (as a visitor, without account creation) is treated similarly to viewing clearweb content. However, creating accounts, participating in forums, making purchases, or conducting undercover operations may require specific legal authority. Accessing dark web CSAM is always subject to the same legal restrictions as clearweb CSAM — your legal authority covers what you may view, not where you access it from.",
+        "tip": "Confirm with your legal supervisor which activities are covered by your authorisation before beginning. 'I didn't know I needed authorisation' is not a defence."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Discovering .onion sites safely without entering Tor",
+        "content": "Before entering Tor, use clearweb search tools to identify and evaluate target .onion sites. Ahmia.fi indexes publicly accessible Tor hidden services and can be searched from a normal browser. This allows you to assess the relevance and risk level of a site before direct access, and lets you document your decision to access it before entering the Tor environment.",
+        "tip": "Ahmia also indexes sites that have been reported as CSAM hosts — these are flagged and excluded from Ahmia's results, but the URL is still known and can be passed to takedown organisations."
+      },
+      {
+        "stepNumber": 5,
+        "title": "Documentation requirements for dark web evidence",
+        "content": "Evidence obtained from the dark web faces additional scrutiny in court because defence counsel will challenge: how the site was accessed, what authentication was performed, and whether the investigator contaminated the evidence. Your investigation log must record: the .onion URL, how it was discovered, the date/time of access (UTC), Tor Browser version used, what was observed, and any content captured. Screenshot evidence should include the .onion URL visibly in the address bar.",
+        "tip": "Some jurisdictions require a second officer to observe and co-sign documentation of any dark web access during an active investigation. Check your agency's protocol."
+      }
+    ]
+  }
+]

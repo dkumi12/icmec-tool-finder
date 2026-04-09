@@ -1,0 +1,306 @@
+[
+  {
+    "id": "crypto-csam-payment-trace",
+    "title": "Tracing Cryptocurrency Payments in a CSAM Case",
+    "description": "Step-by-step workflow for tracing cryptocurrency payments linked to CSAM platforms or offender accounts, from wallet identification through to exchange attribution.",
+    "difficulty": "advanced",
+    "estimatedTime": "4–8 hours",
+    "investigationTypes": ["crypto tracing", "CSAM detection"],
+    "tools": ["Blockchair", "OXT (Bitcoin Graph Tool)", "Breadcrumbs", "Chainalysis Reactor", "TRM Labs"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Identify the suspect wallet address",
+        "description": "Extract the wallet address from the intelligence you have — this may come from a CyberTipline report, a seized device, undercover operation, or platform data. Document the source and how it was obtained.",
+        "toolName": "NCMEC CyberTipline",
+        "checkpoint": "Do you have a confirmed wallet address and a documented, legally sound source for it?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Run initial blockchain exploration",
+        "description": "Search the wallet address in a free blockchain explorer to get the full transaction history, balance, and first/last activity dates. Note the total volume transacted and identify any large or recurring transactions.",
+        "toolName": "Blockchair",
+        "checkpoint": "Have you documented the total transaction count, volume, and date range of wallet activity?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Visualise the transaction graph",
+        "description": "Map fund flows visually to identify clusters of connected wallets, mixing patterns, or hops designed to obscure the trail. Look for convergence points where funds consolidate before moving to an exchange.",
+        "toolName": "OXT (Bitcoin Graph Tool)",
+        "checkpoint": "Have you identified at least one destination wallet or exchange deposit address in the fund flow?"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Score and flag high-risk addresses",
+        "description": "Run suspect addresses through a risk-scoring tool that labels known criminal wallets, darknet markets, and mixers. Document any flagged associations.",
+        "toolName": "Breadcrumbs",
+        "checkpoint": "Has any address in the chain been flagged as high-risk or linked to a known criminal entity?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Attribute to a regulated exchange",
+        "description": "Trace funds to a known exchange deposit address. If available, use enterprise tools for entity attribution. The exchange holds KYC identity records that can be obtained via legal process.",
+        "toolName": "Chainalysis Reactor",
+        "checkpoint": "Have you identified the exchange name and obtained the deposit address for legal process submission?"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Prepare legal hold and subpoena",
+        "description": "Draft a legal hold letter or subpoena request to the exchange's law enforcement portal. Include: wallet address, deposit transaction hash, date range, and your jurisdiction's legal authority. Time-stamp all evidence packages.",
+        "toolName": null,
+        "checkpoint": "Has the legal hold been submitted and acknowledged by the exchange's LE response team?"
+      }
+    ]
+  },
+  {
+    "id": "username-osint-grooming-suspect",
+    "title": "Building a Digital Profile from a Suspect Username",
+    "description": "Systematic OSINT workflow for constructing a full digital identity profile of a suspected groomer starting from a single username or alias.",
+    "difficulty": "intermediate",
+    "estimatedTime": "2–4 hours",
+    "investigationTypes": ["online grooming", "social media investigation"],
+    "tools": ["Sherlock", "WhatsMyName", "IntelTechniques", "Google Dorking", "Maltego"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Document the starting alias",
+        "description": "Record the exact username as observed — spelling, capitalisation, numbers, special characters. Note the platform it was found on and the context (chat log, report, undercover interaction). Never modify the source evidence.",
+        "toolName": null,
+        "checkpoint": "Is the original username documented with source platform and case reference number?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Cross-platform username enumeration",
+        "description": "Run the username through an automated platform checker to identify all social networks, forums, and services where the same alias is registered. This often reveals platforms the suspect uses beyond the original investigation scope.",
+        "toolName": "Sherlock",
+        "checkpoint": "Have you collected URLs for all positive username matches and documented any platforms showing the same alias?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Review public profile content",
+        "description": "For each positive match, capture public profile content: bio text, profile images, location references, linked accounts, posted content. Screenshot and archive everything — accounts may be deleted as the investigation progresses.",
+        "toolName": null,
+        "checkpoint": "Have all positive profiles been archived with timestamps? Have any self-references to location, name, or employer been noted?"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Reverse image search profile pictures",
+        "description": "Download profile images and run reverse image searches to identify the same image used on other platforms, or to check if the image is stolen from another real person (catfishing indicator).",
+        "toolName": null,
+        "checkpoint": "Have all profile images been reverse-searched? Is there evidence of image reuse, a real-person match, or AI-generated imagery?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Email and phone pivot",
+        "description": "If an email address or phone number is recovered from any profile, pivot to identify further accounts registered with those identifiers. Email can also be used to query data breach repositories if legally authorised.",
+        "toolName": null,
+        "checkpoint": "Has an email address or phone number been identified? Have these been documented for legal process or further OSINT pivoting?"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Compile and structure the dossier",
+        "description": "Consolidate all findings into a structured intelligence report: alias tree, platform list, archived profiles, images, identifiers, and any real-world indicators. Flag information that requires legal process to action (e.g. subscriber data from platforms).",
+        "toolName": null,
+        "checkpoint": "Is the dossier complete with source links, timestamps, and a clear separation between open-source intelligence and information requiring legal process?"
+      }
+    ]
+  },
+  {
+    "id": "device-media-review-workflow",
+    "title": "Forensic Review of Seized Device Media for CSAM",
+    "description": "Standard workflow for processing a seized digital device to identify, categorise, and preserve CSAM evidence in a legally defensible manner.",
+    "difficulty": "advanced",
+    "estimatedTime": "1–3 days",
+    "investigationTypes": ["CSAM detection", "digital forensics"],
+    "tools": ["Cellebrite UFED", "Magnet AXIOM", "Griffeye Analyze DI", "PhotoDNA", "F1 Video Hash Tool", "Project VIC"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Establish chain of custody and legal authority",
+        "description": "Confirm you have valid legal authority (warrant, court order) for the device examination. Document device receipt: make, model, serial number, condition, and the authorising legal instrument. Complete chain of custody forms before touching the device.",
+        "toolName": null,
+        "checkpoint": "Is the chain of custody form complete and signed? Is the legal authority document on file?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Create forensic image",
+        "description": "Using a write-blocked connection, create a forensic image (bit-for-bit copy) of the device storage. Do not work from the original device. Verify the image hash (MD5 + SHA-256) to confirm integrity.",
+        "toolName": "Cellebrite UFED",
+        "checkpoint": "Does the hash of the forensic image match the hash computed immediately after imaging? Is the original device sealed and stored?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Run automated hash scan against known CSAM databases",
+        "description": "Before manual review begins, run the image against known CSAM hash sets (PhotoDNA, Project VIC, CAID). This flags confirmed CSAM automatically and reduces the volume of material requiring human review.",
+        "toolName": "PhotoDNA",
+        "checkpoint": "Have hash scan results been logged with match counts? Have confirmed hash matches been documented for the evidence report?"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Category sort and AI-assisted triage",
+        "description": "Use a media management platform to automatically categorise images and videos by content type. This surfaces likely CSAM for priority review and filters out non-relevant material (documents, legitimate photos, system files).",
+        "toolName": "Griffeye Analyze DI",
+        "checkpoint": "Has automated categorisation completed? Are the flagged-for-review categories isolated from confirmed hash matches?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Manual review of flagged material",
+        "description": "Analysts review only the flagged/categorised material — not the entire device. Apply COPINE or equivalent national classification scale. Limit exposure time per analyst session and ensure psychological support protocols are in place.",
+        "toolName": null,
+        "checkpoint": "Has all flagged material been reviewed and classified? Have analyst welfare check-ins been scheduled?"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Evidence preservation and reporting",
+        "description": "Export classified material to an evidence management system. Hash all evidence files. Generate a full forensic report documenting methodology, tools used, hash values, and classification decisions. Submit confirmed CSAM hashes to Project VIC / NCMEC.",
+        "toolName": "Project VIC",
+        "checkpoint": "Is the forensic report complete with methodology documentation? Have confirmed CSAM hashes been submitted to the national hash-sharing network?"
+      }
+    ]
+  },
+  {
+    "id": "dark-web-investigation-setup",
+    "title": "Setting Up a Safe Dark Web Investigation Environment",
+    "description": "Operational security checklist and setup workflow for conducting legally defensible dark web investigations without exposing investigator identity or department infrastructure.",
+    "difficulty": "advanced",
+    "estimatedTime": "1–2 days",
+    "investigationTypes": ["dark web", "CSAM detection", "trafficking"],
+    "tools": ["Ahmia", "OnionScan", "DeepDarkCTI"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Obtain legal authorisation",
+        "description": "Before any dark web access, confirm you have the appropriate legal authority for the jurisdiction where the investigation will take place. Document the authorisation, case reference, and scope of permitted investigation activities.",
+        "toolName": null,
+        "checkpoint": "Is written legal authorisation obtained and on file? Is the scope of permitted activities clearly documented?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Set up an isolated investigation VM",
+        "description": "Create a dedicated virtual machine on isolated hardware. Do not use department production systems. The VM should have no connection to department network drives, shared storage, or personal accounts. Use a clean OS install.",
+        "toolName": null,
+        "checkpoint": "Is the VM completely isolated from department networks and personal data? Has the VM been tested for DNS leaks?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Configure Tor and verify anonymity",
+        "description": "Install Tor Browser in the VM. Verify your exit IP is not your real IP using a clearweb IP check service before proceeding. Configure Tor security settings to 'Safest'. Disable JavaScript by default.",
+        "toolName": null,
+        "checkpoint": "Does the visible IP address differ from your real IP? Are Tor security settings set to 'Safest'? Is JavaScript disabled?"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Establish an investigation log",
+        "description": "Start a timestamped investigation log before accessing any dark web content. Log: date/time, sites accessed, search terms used, content observed, and actions taken. This log is part of the legal evidence record.",
+        "toolName": null,
+        "checkpoint": "Is the investigation log open and timestamped? Is the logging process documented in your case management system?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Use safe discovery tools before direct access",
+        "description": "Use clearweb dark web search tools to identify and evaluate target sites before direct access via Tor. This reduces exposure to non-case-relevant material and allows pre-assessment of site risk level.",
+        "toolName": "Ahmia",
+        "checkpoint": "Have you identified the target onion addresses using safe clearweb tools before entering Tor?"
+      },
+      {
+        "stepNumber": 6,
+        "title": "Post-session evidence handling and VM snapshot",
+        "description": "After each session: capture a VM snapshot for evidence preservation, export logs, and shut down the VM cleanly. Never carry over session cookies or cached content between investigation days. Store all exports in the case evidence management system.",
+        "toolName": null,
+        "checkpoint": "Has the session log been exported and stored? Is the VM snapshot taken and labelled with date/time?"
+      }
+    ]
+  },
+  {
+    "id": "ai-csam-authentication",
+    "title": "Authenticating AI-Generated vs. Real CSAM",
+    "description": "Workflow for determining whether suspected CSAM is AI-generated or depicts a real child, which affects both the legal classification and investigative priority.",
+    "difficulty": "intermediate",
+    "estimatedTime": "1–3 hours",
+    "investigationTypes": ["AI-Generated CSAM", "media authentication", "CSAM detection"],
+    "tools": ["PhotoDNA", "Magnet AXIOM", "INTERPOL ICSE Database"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Hash check against known CSAM databases first",
+        "description": "Before any authentication analysis, run the image/video hash against known CSAM databases. If there is a hash match, the material is confirmed real (AI-generated content would not appear in hash databases of real abuse material). Document the result either way.",
+        "toolName": "PhotoDNA",
+        "checkpoint": "Has the material been hash-checked? If a match was found, has the case been escalated as confirmed real CSAM?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Extract and analyse metadata",
+        "description": "Extract all available metadata from the file (EXIF, XMP, creation timestamps, device identifiers, GPS). AI-generated images typically lack camera metadata and may have creation tools identifiable in metadata fields. Document all findings.",
+        "toolName": "Magnet AXIOM",
+        "checkpoint": "Has all file metadata been extracted and documented? Are there camera model, GPS, or device identifiers present?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "Visual analysis for AI generation artefacts",
+        "description": "Examine the image/video for GAN artefacts: inconsistent skin textures, irregular ear or hair geometry, asymmetrical facial features, background distortions, and unrealistic eye reflections. These are hallmarks of AI generation but are becoming harder to detect as models improve.",
+        "toolName": null,
+        "checkpoint": "Have you documented specific visual indicators either supporting or contradicting AI generation? Note: absence of artefacts does NOT confirm the material is real."
+      },
+      {
+        "stepNumber": 4,
+        "title": "Check for source image misuse (deepfake check)",
+        "description": "If the material appears to be a real person's face superimposed on synthetic imagery (deepfake), run a reverse image search on the face to identify the source image. This may reveal the real victim whose likeness was used.",
+        "toolName": null,
+        "checkpoint": "Has a reverse image search been conducted? Has any real person been identified as the likely source of facial imagery?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Expert review and legal classification",
+        "description": "Refer authentication findings to a qualified forensic expert for final opinion. The legal classification of AI-generated CSAM varies by jurisdiction — confirm the applicable law before charging. Document the expert opinion formally.",
+        "toolName": null,
+        "checkpoint": "Has a forensic expert reviewed the authentication findings? Has the applicable legal classification for AI-generated CSAM in your jurisdiction been confirmed?"
+      }
+    ]
+  },
+  {
+    "id": "cross-border-referral-workflow",
+    "title": "Preparing and Submitting a Cross-Border Investigative Referral",
+    "description": "Step-by-step process for preparing, packaging, and submitting a cross-border referral for an online child exploitation case to the appropriate international channel.",
+    "difficulty": "beginner",
+    "estimatedTime": "2–6 hours",
+    "investigationTypes": ["cross-border", "CSAM detection", "trafficking"],
+    "tools": ["NCMEC CyberTipline", "INTERPOL ICSE Database", "INHOPE ICCAM", "Europol IOCTA Reporting Platform"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "title": "Identify the offender's likely jurisdiction",
+        "description": "Determine the most probable country of the offender or hosting infrastructure based on available intelligence: IP geolocation, platform data, language indicators, payment methods, or domain registration. Document the basis for your jurisdiction assessment.",
+        "toolName": null,
+        "checkpoint": "Have you identified a primary suspect jurisdiction? Is the basis for this assessment documented?"
+      },
+      {
+        "stepNumber": 2,
+        "title": "Determine the correct referral channel",
+        "description": "Select the appropriate international channel: INTERPOL NCB for criminal investigation referrals, Europol for EU-to-EU cases, INHOPE for CSAM content takedown referrals, or bilateral MLAT for formal evidence requests. The channel depends on whether you need an investigation opened, content taken down, or subscriber data obtained.",
+        "toolName": null,
+        "checkpoint": "Have you confirmed which channel is appropriate for your specific need (investigation, takedown, or subscriber data)?"
+      },
+      {
+        "stepNumber": 3,
+        "title": "File a CyberTipline report if a US platform is involved",
+        "description": "If the content was hosted on or transmitted via a US-based platform (Facebook, Google, Snapchat, etc.), file or confirm a CyberTipline report with NCMEC. US platforms are legally required to report to NCMEC. Law enforcement can query existing reports.",
+        "toolName": "NCMEC CyberTipline",
+        "checkpoint": "If a US platform is involved, has the CyberTipline report number been obtained and included in your referral package?"
+      },
+      {
+        "stepNumber": 4,
+        "title": "Package the evidence",
+        "description": "Compile the referral evidence package: case summary, legal basis for investigation, evidence descriptions (no actual CSAM images in cross-border referrals — use hash values only), suspect identifiers, and the investigative action being requested of the receiving agency.",
+        "toolName": null,
+        "checkpoint": "Does the package include case summary, hash values (not images), suspect identifiers, and a clear action request? Has a legal supervisor reviewed the package?"
+      },
+      {
+        "stepNumber": 5,
+        "title": "Submit via the appropriate channel",
+        "description": "Submit through your national INTERPOL NCB, Europol National Unit, or the INHOPE member hotline in the target country. For CSAM content takedown referrals, use INHOPE ICCAM directly. Keep a submission receipt and follow up within 30 days if no acknowledgement is received.",
+        "toolName": "INHOPE ICCAM",
+        "checkpoint": "Has the referral been submitted with a copy stored in your case file? Has a follow-up date been set in your case management system?"
+      }
+    ]
+  }
+]
