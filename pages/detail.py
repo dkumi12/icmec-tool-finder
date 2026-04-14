@@ -60,6 +60,17 @@ if score or reasons:
 
 # ── Quick Overview (2-column grid) ───────────────────────────────────────────
 
+# ── Coding / Technical Requirement Indicator ────────────────────────────────
+
+_skill_raw = (tool.get("skill_level") or "").lower()
+_tags_raw = [t.lower() for t in (tool.get("capability_tags") or [])]
+_coding_keywords = {"api", "cli", "scripting", "sdk", "command_line", "developer"}
+
+_requires_coding = (
+    any(kw in _skill_raw for kw in ("api", "expert", "enterprise")) or
+    any(kw in tag for tag in _tags_raw for kw in _coding_keywords)
+)
+
 st.markdown("### Overview")
 
 left, right = st.columns(2)
@@ -68,7 +79,7 @@ with left:
     st.markdown("**Cost & Licensing**")
     st.write(tool.get("cost_and_licensing", "N/A"))
 
-    st.markdown("**Skill Level Required**")
+    st.markdown("**Technical Skill Level Required**")
     st.write(tool.get("skill_level", "N/A"))
 
     st.markdown("**Platform & Integration**")
@@ -81,9 +92,43 @@ with right:
     st.markdown("**Last Verified**")
     st.write(tool.get("last_verified", "N/A"))
 
+    _meta = tool.get("additional_metadata") or {}
+    _languages = _meta.get("languages", _meta.get("language", "English"))
+    st.markdown("**Languages**")
+    st.write(_languages)
+
+    st.markdown("**Requires Coding Skills**")
+    st.write("Yes — may require command-line or API knowledge" if _requires_coding else "No — GUI or web-based interface")
+
     if url:
         st.markdown("**Official Website**")
         st.link_button("Visit Website", url)
+
+st.divider()
+
+# ── Contact & Licensing ──────────────────────────────────────────────────────
+
+st.markdown("### Contact & Licensing")
+
+cl_left, cl_right = st.columns(2)
+
+with cl_left:
+    st.markdown("**Licensing Model**")
+    st.write(tool.get("cost_and_licensing", "N/A"))
+
+    if url:
+        st.markdown("**Vendor Website**")
+        st.link_button(f"Visit {vendor or 'Website'}", url)
+
+with cl_right:
+    st.markdown("**Access Requirements**")
+    access = tool.get("access_restrictions", "N/A")
+    st.write(access)
+
+    docs_support = tool.get("documentation_and_support", "")
+    if docs_support:
+        st.markdown("**How to Get Started**")
+        st.write(docs_support)
 
 st.divider()
 

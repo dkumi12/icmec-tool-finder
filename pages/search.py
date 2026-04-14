@@ -74,7 +74,7 @@ with form_col:
 
         with row1_right:
             skill_level = st.selectbox(
-                "Your Skill Level",
+                "Your Technical Skill Level",
                 options=["beginner", "intermediate", "advanced"],
                 index=1,
                 format_func=str.capitalize,
@@ -107,7 +107,8 @@ if submitted:
             urgency=urgency,
             is_law_enforcement=is_le,
         )
-        st.session_state.results = recommend_tools(tools, query, top_n=5)
+        st.session_state.results = recommend_tools(tools, query, top_n=20)
+        st.session_state.show_all = False
         st.session_state.search_summary = (
             f"{', '.join(investigation_types)} · "
             f"Budget: {budget} · Skill: {skill_level}"
@@ -115,14 +116,33 @@ if submitted:
 
 # ── Results ──────────────────────────────────────────────────────────────────
 
+if "show_all" not in st.session_state:
+    st.session_state.show_all = False
+
 if st.session_state.results:
     results = st.session_state.results
+    display_count = len(results) if st.session_state.show_all else min(5, len(results))
+    visible_results = results[:display_count]
 
     st.divider()
-    st.markdown(f"### Top {len(results)} Recommended Tools")
+    st.markdown(f"### Top {display_count} Recommended Tools")
     st.caption(st.session_state.search_summary)
 
-    for rank, result in enumerate(results, 1):
+    with st.expander("How are tools scored?"):
+        st.markdown("""
+Each tool is scored against your case inputs using these criteria:
+
+- **Investigation type match** — tools whose capabilities align with your selected case type score highest (up to 9 pts)
+- **Budget fit** — tools within your stated budget score higher; tools outside it are penalised (+2 / −2 pts)
+- **Technical skill match** — tools appropriate for your skill level score higher (+2 pts)
+- **Evidence type match** — tools that handle the evidence you have available score higher (up to 3 pts)
+- **Urgency** — free, publicly available tools get a bonus when you need something immediately (+1 pt)
+- **Access restrictions** — tools restricted to law enforcement are penalised for non-LE users (−5 pts)
+
+**Score range:** −7 to 17 points. Higher scores mean a stronger match for your case.
+""")
+
+    for rank, result in enumerate(visible_results, 1):
         t = result.tool
         name = (t.get("tool_name") or "Unknown").strip()
         vendor = t.get("vendor", "").strip()
@@ -151,7 +171,7 @@ if st.session_state.results:
             # ── Quick info row ───────────────────────────
             c1, c2, c3, c4 = st.columns(4)
             c1.markdown(f"**Cost:** {cost}")
-            c2.markdown(f"**Skill:** {skill}")
+            c2.markdown(f"**Technical Skill:** {skill}")
             c3.markdown(f"**Platform:** {platform}")
             c4.markdown(f"**Access:** {access}")
 
@@ -171,3 +191,24 @@ if st.session_state.results:
             with btn_right:
                 if url:
                     st.link_button("Visit Website", url)
+
+    # ── Show More / Show Less ───────────────────────────────────────
+    if len(results) > 5:
+        _, show_col, _ = st.columns([1, 2, 1])
+        with show_col:
+            if not st.session_state.show_all:
+                if st.button(f"Show More ({len(results) - 5} more tools)", use_container_width=True):
+                    st.session_state.show_all = True
+                    st.rerun()
+            else:
+                if st.button("Show Less", use_container_width=True):
+                    st.session_state.show_all = False
+                    st.rerun()
+
+    # ── Suggest a Tool link ─────────────────────────────────────────
+    st.divider()
+    _, suggest_col, _ = st.columns([1, 2, 1])
+    with suggest_col:
+        st.markdown("Can't find what you're looking for?")
+        if st.button("Suggest a Tool", use_container_width=True):
+            st.switch_page("pages/suggest.py")
