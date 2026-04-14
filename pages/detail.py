@@ -64,11 +64,13 @@ if score or reasons:
 
 _skill_raw = (tool.get("skill_level") or "").lower()
 _tags_raw = [t.lower() for t in (tool.get("capability_tags") or [])]
+_platform_raw = (tool.get("platform_and_integration") or "").lower()
 _coding_keywords = {"api", "cli", "scripting", "sdk", "command_line", "developer"}
 
 _requires_coding = (
     any(kw in _skill_raw for kw in ("api", "expert", "enterprise")) or
-    any(kw in tag for tag in _tags_raw for kw in _coding_keywords)
+    any(kw in tag for tag in _tags_raw for kw in _coding_keywords) or
+    any(kw in _platform_raw for kw in ("api", "cli", "command"))
 )
 
 st.markdown("### Overview")
@@ -98,7 +100,17 @@ with right:
     st.write(_languages)
 
     st.markdown("**Requires Coding Skills**")
-    st.write("Yes — may require command-line or API knowledge" if _requires_coding else "No — GUI or web-based interface")
+    if _requires_coding:
+        if "cli" in _platform_raw or "command" in _platform_raw:
+            st.write("Yes — command-line tool, requires terminal knowledge")
+        elif "api" in _platform_raw and ("web" in _platform_raw or "gui" in _platform_raw):
+            st.write("Optional — GUI available, but also has API integration")
+        elif "api" in _platform_raw:
+            st.write("Yes — API-based, requires coding knowledge")
+        else:
+            st.write("Yes — may require command-line or API knowledge")
+    else:
+        st.write("No — GUI or web-based interface")
 
     if url:
         st.markdown("**Official Website**")
@@ -138,9 +150,9 @@ tags = tool.get("capability_tags", [])
 if tags:
     st.markdown("### Capabilities")
     # Display as columns of chips for readability
-    cols = st.columns(4)
+    cols = st.columns(3)
     for i, tag in enumerate(tags):
-        cols[i % 4].code(tag.replace("_", " "))
+        cols[i % 3].code(tag.replace("_", " "))
 
     st.divider()
 
