@@ -8,11 +8,6 @@ import pathlib
 import streamlit as st
 from streamlit_feedback import streamlit_feedback
 from scoring.normalise import parse_coding_requirement, parse_languages
-from scoring.ratings import (
-    get_investigator_tool_rating,
-    get_tool_rating_summary,
-    submit_rating,
-)
 
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
@@ -74,52 +69,6 @@ if score or reasons:
                 st.markdown(f"✓ {reason}")
 
     st.divider()
-
-# ── Community Ratings ────────────────────────────────────────────────────────
-
-st.markdown("### Community Rating")
-if "investigator_name" not in st.session_state:
-    st.session_state.investigator_name = ""
-
-rating_col, submit_col = st.columns([2, 3])
-with rating_col:
-    avg_rating, rating_count = get_tool_rating_summary(name)
-    if avg_rating is None:
-        st.caption("No ratings yet — be the first.")
-    else:
-        stars = "⭐" * round(avg_rating)
-        st.markdown(f"{stars} **{avg_rating} / 5**")
-        st.caption(f"Rated by {rating_count} investigator submission(s)")
-
-with submit_col:
-    st.info("Used only to track your tool ratings. You can use an anonymous alias (for example: Anonymous-01).")
-    investigator = st.text_input(
-        "Name or alias for ratings only",
-        key=f"investigator_for_{name}",
-        value=st.session_state.investigator_name,
-        placeholder="e.g. Anonymous-01",
-    )
-    st.session_state.investigator_name = investigator
-
-    if investigator.strip():
-        existing_rating = get_investigator_tool_rating(name, investigator)
-        if existing_rating is not None:
-            st.caption(f"Your latest rating: {existing_rating} / 5")
-        user_star = st.feedback("stars", key=f"rating_{name}_{investigator.strip().lower()}")
-        if user_star is not None:
-            saved = submit_rating(
-                tool_name=name,
-                investigator=investigator,
-                stars=user_star + 1,
-                source="detail_page",
-            )
-            if saved:
-                st.toast("Rating submitted — thank you!", icon="⭐")
-                st.rerun()
-    else:
-        st.caption("Enter your name/alias to submit a rating.")
-
-st.divider()
 
 # ── Quick Overview (2-column grid) ───────────────────────────────────────────
 
