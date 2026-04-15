@@ -167,18 +167,18 @@ if st.session_state.results:
         st.markdown("""
 Each tool is scored against your case inputs and displayed as a **match percentage (0–100%)**.
 
-| Signal | Max contribution | How it works |
+| Matching Factor | Maximum Impact | How it works |
 |---|---|---|
-| Investigation type match | **+38%** | +3 pts per matching capability tag, capped at 9 |
-| Evidence type match | **+13%** | +1 pt per matching evidence type, capped at 3 |
-| Budget fit | **+8%** | +2 pts if within budget, −2 pts if outside |
-| Technical skill match | **+8%** | +2 pts if tool is appropriate for your skill level |
-| Urgency bonus | **+4%** | +1 pt for free, public tools when urgency is immediate |
-| Access gate | **−21%** | −5 pts if tool is LE-restricted and you are not law enforcement |
+| Investigation Type | **+38%** | Massive boost if the tool's capabilities match your primary goals. |
+| Evidence Type | **+13%** | Moderate boost if the tool supports your exact evidence files. |
+| Budget Fit | **+8%** | Small boost if the tool is within your price range. |
+| Skill Match | **+8%** | Small boost if the tool matches your technical comfort level. |
+| Urgency | **+4%** | Bonus points for free, instant-access tools during emergencies. |
+| Access Restriction | **−21% Penalty** | Heavy deduction if the tool is for law enforcement and you lack clearance. |
 
 **Optional hard filters** — coding requirement and interface language remove non-matching tools entirely before scoring.
 
-🟢 **≥ 70%** strong match · 🟡 **40–69%** partial match · 🔴 **< 40%** weak match
+**Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 """)
 
     for rank, result in enumerate(visible_results, 1):
