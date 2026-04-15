@@ -12,7 +12,7 @@ Live app: [investiqo.streamlit.app](https://investiqo.streamlit.app)
 
 ## The Problem
 
-When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that — describe your case, get ranked recommendations with reasons in under 10 seconds.
+When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that; describe your case, get ranked recommendations with reasons in under 10 seconds.
 
 ---
 
