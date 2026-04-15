@@ -111,7 +111,7 @@ with form_col:
             languages = st.multiselect(
                 "Preferred Interface Language(s)",
                 options=language_options + ["Any / Not specified"],
-                help="Optional — language coverage is partial. Most tools default to English. Enrichment data (George Mwangi) covers a subset of tools.",
+                help="Optional — language coverage is partial. Most tools default to English where not specified.",
                 placeholder="Choose languages (optional)...",
             )
 
