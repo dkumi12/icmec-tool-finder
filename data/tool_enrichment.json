@@ -1,0 +1,1578 @@
+{
+  "_meta": {
+    "generated_at_utc": "2026-04-15T03:57:25.331712+00:00",
+    "method": "Official/public tool pages plus existing dataset fields for coding/language signals",
+    "coding_values": [
+      "no_coding",
+      "optional_coding",
+      "requires_coding"
+    ]
+  },
+  "tools": {
+    "autopsy": {
+      "tool_name": "Autopsy",
+      "source_url": "https://www.autopsy.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "the sleuth kit (tsk)": {
+      "tool_name": "The Sleuth Kit (TSK)",
+      "source_url": "https://www.sleuthkit.org/sleuthkit/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "command line"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "magnet axiom": {
+      "tool_name": "Magnet AXIOM",
+      "source_url": "https://www.magnetforensics.com/products/magnet-axiom/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "cellebrite ufed": {
+      "tool_name": "Cellebrite UFED",
+      "source_url": "https://cellebrite.com/en/products/ufed/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "cellebrite physical analyzer": {
+      "tool_name": "Cellebrite Physical Analyzer",
+      "source_url": "https://cellebrite.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "encase forensic": {
+      "tool_name": "EnCase Forensic",
+      "source_url": "https://www.opentext.com/products/forensic",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "x-ways forensics": {
+      "tool_name": "X-Ways Forensics",
+      "source_url": "https://www.x-ways.net/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "ftk (forensic toolkit)": {
+      "tool_name": "FTK (Forensic Toolkit)",
+      "source_url": "https://www.exterro.com/digital-forensics-software/ftk-forensic-toolkit",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "ftk imager": {
+      "tool_name": "FTK Imager",
+      "source_url": "https://www.exterro.com/digital-forensics-software/ftk-imager",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "belkasoft evidence center": {
+      "tool_name": "Belkasoft Evidence Center",
+      "source_url": "https://belkasoft.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "bulk extractor": {
+      "tool_name": "Bulk Extractor",
+      "source_url": "https://github.com/simsong/bulk_extractor",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "gui",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "volatility framework": {
+      "tool_name": "Volatility Framework",
+      "source_url": "https://volatilityfoundation.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "redline": {
+      "tool_name": "Redline",
+      "source_url": "https://www.trellix.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "sift workstation": {
+      "tool_name": "SIFT Workstation",
+      "source_url": "https://www.sans.org/tools/sift-workstation",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "caine": {
+      "tool_name": "CAINE",
+      "source_url": "https://www.caine-live.net/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "paladin": {
+      "tool_name": "Paladin",
+      "source_url": "https://sumuri.com/software/paladin/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "oxygen forensics detective": {
+      "tool_name": "Oxygen Forensics Detective",
+      "source_url": "https://www.oxygenforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "msab xry": {
+      "tool_name": "MSAB XRY",
+      "source_url": "https://www.msab.com/product/xry-extract/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "graykey": {
+      "tool_name": "GrayKey",
+      "source_url": "https://www.magnetforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "magnet graykey": {
+      "tool_name": "Magnet GrayKey",
+      "source_url": "https://www.magnetforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "maltego": {
+      "tool_name": "Maltego",
+      "source_url": "https://www.maltego.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "gui",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "spiderfoot": {
+      "tool_name": "SpiderFoot",
+      "source_url": "https://www.spiderfoot.net/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "theharvester": {
+      "tool_name": "theHarvester",
+      "source_url": "https://github.com/laramies/theHarvester",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "recon-ng": {
+      "tool_name": "Recon-ng",
+      "source_url": "https://github.com/lanmaster53/recon-ng",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "shodan": {
+      "tool_name": "Shodan",
+      "source_url": "https://www.shodan.io/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "developer",
+          "gui",
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "hunchly": {
+      "tool_name": "Hunchly",
+      "source_url": "https://www.hunch.ly/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "browser",
+          "chrome extension",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "shadowdragon horizon": {
+      "tool_name": "ShadowDragon Horizon",
+      "source_url": "https://shadowdragon.io/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "social links crimewall": {
+      "tool_name": "Social Links Crimewall",
+      "source_url": "https://sociallinks.io/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "developer",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "i2 analyst’s notebook": {
+      "tool_name": "i2 Analyst’s Notebook",
+      "source_url": "https://www.i2group.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "recorded future": {
+      "tool_name": "Recorded Future",
+      "source_url": "https://www.recordedfuture.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "osint framework": {
+      "tool_name": "OSINT Framework",
+      "source_url": "https://osintframework.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "browser",
+          "cli",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "lampyre": {
+      "tool_name": "Lampyre",
+      "source_url": "https://lampyre.io/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "videris": {
+      "tool_name": "Videris",
+      "source_url": "https://blackdotsolutions.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "developer",
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "sherlock": {
+      "tool_name": "Sherlock",
+      "source_url": "https://github.com/sherlock-project/sherlock",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "maigret": {
+      "tool_name": "Maigret",
+      "source_url": "https://github.com/soxoj/maigret",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "exiftool": {
+      "tool_name": "ExifTool",
+      "source_url": "https://exiftool.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "terminal"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "project arachnid": {
+      "tool_name": "Project Arachnid",
+      "source_url": "https://protectchildren.ca/en/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "magnet verify": {
+      "tool_name": "Magnet Verify",
+      "source_url": "https://www.magnetforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "amped authenticate": {
+      "tool_name": "Amped Authenticate",
+      "source_url": "https://ampedsoftware.com/authenticate",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "hive moderation": {
+      "tool_name": "Hive Moderation",
+      "source_url": "https://thehive.ai/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "developer",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "sensity ai": {
+      "tool_name": "Sensity AI",
+      "source_url": "https://sensity.ai/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "semantics21 visionx": {
+      "tool_name": "SemanticS21 VisionX",
+      "source_url": "https://semantics21.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "amped five": {
+      "tool_name": "Amped FIVE",
+      "source_url": "https://ampedsoftware.com/five",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "fotoforensics": {
+      "tool_name": "FotoForensics",
+      "source_url": "https://fotoforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "microsoft photodna": {
+      "tool_name": "Microsoft PhotoDNA",
+      "source_url": "https://www.microsoft.com/en-us/photodna",
+      "source_type": "local_fields_only",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "reality defender": {
+      "tool_name": "Reality Defender",
+      "source_url": "https://realitydefender.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "deep media deepid": {
+      "tool_name": "Deep Media DeepID",
+      "source_url": "https://deepmedia.ai/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "chainalysis reactor": {
+      "tool_name": "Chainalysis Reactor",
+      "source_url": "https://www.chainalysis.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "trm labs": {
+      "tool_name": "TRM Labs",
+      "source_url": "https://www.trmlabs.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "elliptic investigator": {
+      "tool_name": "Elliptic Investigator",
+      "source_url": "https://www.elliptic.co/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "developer",
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "merkle science": {
+      "tool_name": "Merkle Science",
+      "source_url": "https://merklescience.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "dashboard",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "ciphertrace": {
+      "tool_name": "CipherTrace",
+      "source_url": "https://ciphertrace.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "crystal blockchain": {
+      "tool_name": "Crystal Blockchain",
+      "source_url": "https://crystalblockchain.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "breadcrumbs.io": {
+      "tool_name": "Breadcrumbs.io",
+      "source_url": "https://breadcrumbs.io/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "oxt (open source bitcoin explorer)": {
+      "tool_name": "OXT (Open Source Bitcoin Explorer)",
+      "source_url": "https://oxt.me/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "cellebrite inseyets": {
+      "tool_name": "Cellebrite Inseyets",
+      "source_url": "https://cellebrite.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "magnet outrider": {
+      "tool_name": "Magnet Outrider",
+      "source_url": "https://www.magnetforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "magnet axiom cloud": {
+      "tool_name": "Magnet AXIOM Cloud",
+      "source_url": "https://www.magnetforensics.com/products/magnet-axiom/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "oxygen forensics cloud": {
+      "tool_name": "Oxygen Forensics Cloud",
+      "source_url": "https://www.oxygenforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "wireshark": {
+      "tool_name": "Wireshark",
+      "source_url": "https://www.wireshark.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "networkminer": {
+      "tool_name": "NetworkMiner",
+      "source_url": "https://www.netresec.com/?page=NetworkMiner",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "browser",
+          "cli",
+          "command line",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "iccam": {
+      "tool_name": "ICCAM",
+      "source_url": "https://www.interpol.int/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "reportbox": {
+      "tool_name": "ReportBox",
+      "source_url": "https://www.inhope.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "shareazale": {
+      "tool_name": "ShareazaLE",
+      "source_url": "https://github.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "roundup": {
+      "tool_name": "RoundUp",
+      "source_url": "",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "torrential downpour": {
+      "tool_name": "Torrential Downpour",
+      "source_url": "",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "saferhash": {
+      "tool_name": "SaferHash",
+      "source_url": "https://protectchildren.ca/en/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "developer",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "pdq (perceptual hash)": {
+      "tool_name": "PDQ (Perceptual Hash)",
+      "source_url": "https://github.com/facebook/ThreatExchange/tree/master/hashing",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "developer",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "kaseware": {
+      "tool_name": "Kaseware",
+      "source_url": "https://www.kaseware.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "omnigo case management": {
+      "tool_name": "Omnigo Case Management",
+      "source_url": "https://www.omnigo.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "developer",
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "clue software": {
+      "tool_name": "Clue Software",
+      "source_url": "https://www.cluesoftware.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "integration",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "casebuilder": {
+      "tool_name": "CaseBuilder",
+      "source_url": "https://www.magnetforensics.com/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "gui",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "thehive": {
+      "tool_name": "TheHive",
+      "source_url": "https://thehive-project.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "browser",
+          "cli",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "dfir-iris": {
+      "tool_name": "DFIR-IRIS",
+      "source_url": "https://dfir-iris.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "dashboard",
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "altia clio": {
+      "tool_name": "Altia CLIO",
+      "source_url": "https://www.altia.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "web-based"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "crimr": {
+      "tool_name": "CRIMR",
+      "source_url": "",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "dumpzilla": {
+      "tool_name": "DumpZilla",
+      "source_url": "https://github.com/Busindre/dumpzilla",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "cofee": {
+      "tool_name": "COFEE",
+      "source_url": "https://www.microsoft.com/",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "digital forensics framework (dff)": {
+      "tool_name": "Digital Forensics Framework (DFF)",
+      "source_url": "https://github.com/arxsys/dff",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "browser",
+          "cli",
+          "dashboard",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "hashkeeper": {
+      "tool_name": "HashKeeper",
+      "source_url": "",
+      "source_type": "local_fields_only",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "yara": {
+      "tool_name": "YARA",
+      "source_url": "https://virustotal.github.io/yara/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "gui",
+          "python"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "snort": {
+      "tool_name": "Snort",
+      "source_url": "https://www.snort.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "optional_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "cli",
+          "gui"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "nagios": {
+      "tool_name": "Nagios",
+      "source_url": "https://www.nagios.org/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "no_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [],
+        "languages": [
+          "default_english"
+        ]
+      }
+    },
+    "velociraptor": {
+      "tool_name": "Velociraptor",
+      "source_url": "https://docs.velociraptor.app/",
+      "source_type": "web_plus_local",
+      "coding_requirement": "requires_coding",
+      "languages": [
+        "English"
+      ],
+      "evidence_markers": {
+        "coding": [
+          "api",
+          "cli",
+          "integration"
+        ],
+        "languages": [
+          "default_english"
+        ]
+      }
+    }
+  }
+}

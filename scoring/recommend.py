@@ -16,6 +16,8 @@ from .normalise import (
     user_skill_to_int,
     budget_allows,
     parse_access,
+    parse_coding_requirement,
+    parse_languages,
 )
 
 
@@ -27,6 +29,8 @@ class UserQuery:
     input_types: list[str]
     urgency: str  # "immediate" | "days" | "weeks"
     is_law_enforcement: bool = False
+    coding_requirement: str = "any"  # "any" | "no_coding" | "optional_or_no" | "requires_coding"
+    languages: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -52,7 +56,11 @@ def recommend_tools(
         Signal 5: Urgency bonus              +1
         Access gate:                         -5 if restricted + non-LE
 
-    Score range: -7 to +17.
+    Additional filtering:
+        - Coding requirement (hard filter when selected)
+        - Language availability (hard filter when selected)
+
+    Score range: -7 to +17 (before optional filters remove tools).
     """
     # Pre-compute expanded tag sets from user selections
     inv_tags, inp_tags = get_relevant_tags(
@@ -64,6 +72,24 @@ def recommend_tools(
     scored: list[ScoredTool] = []
 
     for tool in tools:
+        tool_coding_requirement = parse_coding_requirement(tool)
+        tool_languages = parse_languages(tool)
+
+        # ── FILTER: Coding requirement ─────────────────────────────
+        if query.coding_requirement == "no_coding" and tool_coding_requirement != "no_coding":
+            continue
+        if query.coding_requirement == "optional_or_no" and tool_coding_requirement == "requires_coding":
+            continue
+        if query.coding_requirement == "requires_coding" and tool_coding_requirement == "no_coding":
+            continue
+
+        # ── FILTER: Language availability ──────────────────────────
+        if query.languages:
+            wanted_languages = set(query.languages)
+            if "Any / Not specified" not in wanted_languages:
+                if tool_languages.isdisjoint(wanted_languages):
+                    continue
+
         score = 0
         reasons: list[str] = []
 
@@ -111,6 +137,19 @@ def recommend_tools(
             else:
                 skill_display = tool.get("skill_level", "").split("(")[0].strip()
                 reasons.append(f"May require higher skill ({skill_display})")
+
+        if query.coding_requirement != "any":
+            coding_labels = {
+                "no_coding": "No coding needed",
+                "optional_coding": "Coding optional",
+                "requires_coding": "Coding required",
+            }
+            reasons.append(f"Coding fit: {coding_labels[tool_coding_requirement]}")
+
+        if query.languages and "Any / Not specified" not in set(query.languages):
+            matched = sorted(tool_languages & set(query.languages))
+            if matched:
+                reasons.append(f"Language support: {', '.join(matched)}")
 
         # ── SIGNAL 4: Evidence/input type match (+1 per hit, cap +3) ──
         if inp_tags:

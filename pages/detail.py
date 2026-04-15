@@ -7,6 +7,7 @@ import json
 import pathlib
 
 import streamlit as st
+from scoring.normalise import parse_coding_requirement, parse_languages
 
 # ── Ratings helpers ───────────────────────────────────────────────────────────
 
@@ -119,18 +120,10 @@ st.divider()
 
 # ── Quick Overview (2-column grid) ───────────────────────────────────────────
 
-# ── Coding / Technical Requirement Indicator ────────────────────────────────
+# ── Coding / Language indicators (shared with scoring filters) ──────────────
 
-_skill_raw = (tool.get("skill_level") or "").lower()
-_tags_raw = [t.lower() for t in (tool.get("capability_tags") or [])]
-_platform_raw = (tool.get("platform_and_integration") or "").lower()
-_coding_keywords = {"api", "cli", "scripting", "sdk", "command_line", "developer"}
-
-_requires_coding = (
-    any(kw in _skill_raw for kw in ("api", "expert", "enterprise")) or
-    any(kw in tag for tag in _tags_raw for kw in _coding_keywords) or
-    any(kw in _platform_raw for kw in ("api", "cli", "command"))
-)
+_coding_requirement = parse_coding_requirement(tool)
+_languages = parse_languages(tool)
 
 st.markdown("### Overview")
 
@@ -153,23 +146,16 @@ with right:
     st.markdown("**Last Verified**")
     st.write(tool.get("last_verified", "N/A"))
 
-    _meta = tool.get("additional_metadata") or {}
-    _languages = _meta.get("languages", _meta.get("language", "English"))
     st.markdown("**Languages**")
-    st.write(_languages)
+    st.write(", ".join(sorted(_languages)))
 
     st.markdown("**Requires Coding Skills**")
-    if _requires_coding:
-        if "cli" in _platform_raw or "command" in _platform_raw:
-            st.write("Yes — command-line tool, requires terminal knowledge")
-        elif "api" in _platform_raw and ("web" in _platform_raw or "gui" in _platform_raw):
-            st.write("Optional — GUI available, but also has API integration")
-        elif "api" in _platform_raw:
-            st.write("Yes — API-based, requires coding knowledge")
-        else:
-            st.write("Yes — may require command-line or API knowledge")
+    if _coding_requirement == "requires_coding":
+        st.write("Yes — likely requires API/CLI/developer workflow")
+    elif _coding_requirement == "optional_coding":
+        st.write("Optional — GUI/web available, with coding integrations")
     else:
-        st.write("No — GUI or web-based interface")
+        st.write("No — generally GUI/web-based")
 
     if url:
         st.markdown("**Official Website**")

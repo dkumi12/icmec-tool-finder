@@ -8,7 +8,15 @@ import pathlib
 import pytest
 
 from scoring.recommend import recommend_tools, UserQuery
-from scoring.normalise import parse_pricing, parse_skill, user_skill_to_int, budget_allows, parse_access
+from scoring.normalise import (
+    parse_pricing,
+    parse_skill,
+    user_skill_to_int,
+    budget_allows,
+    parse_access,
+    parse_coding_requirement,
+    parse_languages,
+)
 from scoring.tag_maps import INVESTIGATION_TAG_MAP, INPUT_TAG_MAP, get_relevant_tags
 
 
@@ -94,6 +102,49 @@ class TestParseAccess:
 
     def test_law_enforcement(self):
         assert parse_access("Law-enforcement and vetted corporate organizations.") == "restricted"
+
+
+class TestParseCodingRequirement:
+    def test_requires_coding_from_api(self):
+        tool = {
+            "skill_level": "Developer",
+            "platform_and_integration": "API",
+            "capability_tags": ["api_integration"],
+            "documentation_and_support": "API docs",
+        }
+        assert parse_coding_requirement(tool) == "requires_coding"
+
+    def test_optional_coding_when_web_and_api(self):
+        tool = {
+            "skill_level": "Intermediate",
+            "platform_and_integration": "Web-based, API",
+            "capability_tags": [],
+            "documentation_and_support": "",
+        }
+        assert parse_coding_requirement(tool) == "optional_coding"
+
+    def test_no_coding_defaults(self):
+        tool = {
+            "skill_level": "Beginner",
+            "platform_and_integration": "Web-based",
+            "capability_tags": [],
+            "documentation_and_support": "User guides",
+        }
+        assert parse_coding_requirement(tool) == "no_coding"
+
+
+class TestParseLanguages:
+    def test_explicit_language_metadata(self):
+        tool = {"additional_metadata": {"language": "English and Spanish"}}
+        assert parse_languages(tool) == {"English", "Spanish"}
+
+    def test_multilingual_hint(self):
+        tool = {"additional_metadata": {"languages": "Multilingual"}}
+        assert parse_languages(tool) == {"Multilingual"}
+
+    def test_not_specified_fallback(self):
+        tool = {"additional_metadata": {"focus": "OSINT"}}
+        assert parse_languages(tool) == {"Not specified"}
 
 
 # ── Tag Map Tests ───────────────────────────────────────────────────────────
@@ -231,3 +282,30 @@ class TestRecommendTools:
         assert len(results) == 5
         # Top result should have a positive score
         assert results[0].score > 0
+
+    def test_filter_no_coding_removes_developer_only_tools(self, tools):
+        query = UserQuery(
+            investigation_types=["CSAM detection"],
+            budget="paid",
+            skill_level="advanced",
+            input_types=["Image / photo"],
+            urgency="days",
+            is_law_enforcement=True,
+            coding_requirement="no_coding",
+        )
+        results = recommend_tools(tools, query, top_n=20)
+        assert len(results) > 0
+        assert all(parse_coding_requirement(r.tool) == "no_coding" for r in results)
+
+    def test_filter_language_not_specified_with_specific_language(self, tools):
+        query = UserQuery(
+            investigation_types=["CSAM detection"],
+            budget="paid",
+            skill_level="advanced",
+            input_types=["Image / photo"],
+            urgency="days",
+            is_law_enforcement=True,
+            languages=["Spanish"],
+        )
+        results = recommend_tools(tools, query, top_n=20)
+        assert len(results) == 0

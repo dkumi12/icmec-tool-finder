@@ -10,6 +10,7 @@ import streamlit as st
 
 from scoring.recommend import recommend_tools, UserQuery
 from scoring.tag_maps import INVESTIGATION_TAG_MAP, INPUT_TAG_MAP
+from scoring.normalise import parse_languages
 
 # ── Data Loading ─────────────────────────────────────────────────────────────
 
@@ -21,6 +22,15 @@ def load_tools() -> list[dict]:
 
 
 tools = load_tools()
+
+
+@st.cache_data
+def get_language_options(tool_data: list[dict]) -> list[str]:
+    all_langs: set[str] = set()
+    for tool in tool_data:
+        langs = parse_languages(tool)
+        all_langs.update(lang for lang in langs if lang != "Not specified")
+    return sorted(all_langs)
 
 # ── Header ───────────────────────────────────────────────────────────────────
 
@@ -82,6 +92,29 @@ with form_col:
 
             is_le = st.checkbox("I am Law Enforcement / Government", value=False)
 
+        st.markdown("##### Optional Filters")
+        filter_left, filter_right = st.columns(2)
+        with filter_left:
+            coding_requirement = st.selectbox(
+                "Coding Skills Requirement",
+                options=["any", "no_coding", "optional_or_no", "requires_coding"],
+                format_func=lambda x: {
+                    "any": "Any",
+                    "no_coding": "No coding required",
+                    "optional_or_no": "No coding or optional coding",
+                    "requires_coding": "Requires coding / API skills",
+                }[x],
+                help="Use this to include only tools that match your team's coding capacity.",
+            )
+        with filter_right:
+            language_options = get_language_options(tools)
+            languages = st.multiselect(
+                "Preferred Interface Language(s)",
+                options=language_options + ["Any / Not specified"],
+                help="Filters tools by known language support when available in the dataset.",
+                placeholder="Choose languages (optional)...",
+            )
+
 # ── Session State Init ───────────────────────────────────────────────────────
 
 if "results" not in st.session_state:
@@ -106,12 +139,15 @@ if submitted:
             input_types=input_types,
             urgency=urgency,
             is_law_enforcement=is_le,
+            coding_requirement=coding_requirement,
+            languages=languages,
         )
         st.session_state.results = recommend_tools(tools, query, top_n=20)
         st.session_state.show_all = False
         st.session_state.search_summary = (
             f"{', '.join(investigation_types)} · "
-            f"Budget: {budget} · Skill: {skill_level}"
+            f"Budget: {budget} · Skill: {skill_level} · "
+            f"Coding: {coding_requirement.replace('_', ' ')}"
         )
 
 # ── Results ──────────────────────────────────────────────────────────────────
@@ -138,6 +174,7 @@ Each tool is scored against your case inputs using these criteria:
 - **Evidence type match** — tools that handle the evidence you have available score higher (up to 3 pts)
 - **Urgency** — free, publicly available tools get a bonus when you need something immediately (+1 pt)
 - **Access restrictions** — tools restricted to law enforcement are penalised for non-LE users (−5 pts)
+- **Optional hard filters** — coding requirement and interface language can remove non-matching tools before ranking
 
 **Score range:** −7 to 17 points. Higher scores mean a stronger match for your case.
 """)
