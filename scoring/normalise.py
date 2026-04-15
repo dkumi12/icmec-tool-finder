@@ -182,3 +182,4 @@ def parse_languages(tool: dict) -> set[str]:
     if not langs:
         langs.add("Not specified")
     return langs
+
