@@ -8,7 +8,8 @@ import pathlib
 
 import streamlit as st
 
-from scoring.recommend import recommend_tools, UserQuery
+#from scoring.recommend import recommend_tools, UserQuery
+from scoring.rule_based import recommend_tools, UserQuery
 from scoring.tag_maps import INVESTIGATION_TAG_MAP, INPUT_TAG_MAP
 
 # ── Data Loading ─────────────────────────────────────────────────────────────
@@ -128,19 +129,31 @@ if st.session_state.results:
     st.markdown(f"### Top {display_count} Recommended Tools")
     st.caption(st.session_state.search_summary)
 
+    # with st.expander("How are tools scored?"):
+    #     st.markdown("""
+    #         Each tool is scored against your case inputs using these criteria:
+
+    #         - **Investigation type match** — tools whose capabilities align with your selected case type score highest (up to 9 pts)
+    #         - **Budget fit** — tools within your stated budget score higher; tools outside it are penalised (+2 / −2 pts)
+    #         - **Technical skill match** — tools appropriate for your skill level score higher (+2 pts)
+    #         - **Evidence type match** — tools that handle the evidence you have available score higher (up to 3 pts)
+    #         - **Urgency** — free, publicly available tools get a bonus when you need something immediately (+1 pt)
+    #         - **Access restrictions** — tools restricted to law enforcement are penalised for non-LE users (−5 pts)
+
+    #         **Score range:** −7 to 17 points. Higher scores mean a stronger match for your case.
+    #         """)
     with st.expander("How are tools scored?"):
         st.markdown("""
-Each tool is scored against your case inputs using these criteria:
+            Each tool is evaluated against your case inputs using a **weighted scoring model** to calculate a final relevance score from **0 to 100**.
 
-- **Investigation type match** — tools whose capabilities align with your selected case type score highest (up to 9 pts)
-- **Budget fit** — tools within your stated budget score higher; tools outside it are penalised (+2 / −2 pts)
-- **Technical skill match** — tools appropriate for your skill level score higher (+2 pts)
-- **Evidence type match** — tools that handle the evidence you have available score higher (up to 3 pts)
-- **Urgency** — free, publicly available tools get a bonus when you need something immediately (+1 pt)
-- **Access restrictions** — tools restricted to law enforcement are penalised for non-LE users (−5 pts)
+            - **Investigation Match (40%)** — Measures how many of the tool's core capabilities align with your specific investigation type.
+            - **Budget Alignment (20%)** — Full credit for tools within your budget; partial credit for "Freemium" alternatives.
+            - **Technical Skill Fit (15%)** — Higher scores for tools matching your expertise; a sliding scale penalty is applied if a tool requires higher skills.
+            - **Evidence Handling (15%)** — Scores the tool based on its ability to process your specific input types (e.g., images, crypto wallets, or chat logs).
+            - **Access Verification (10%)** — Verifies if you meet the tool's access requirements; restricted tools are heavily deprioritized for non-law enforcement users.
 
-**Score range:** −7 to 17 points. Higher scores mean a stronger match for your case.
-""")
+            **Score Range:** **0 to 100 points.** A higher percentage represents a more comprehensive match for your specific investigative requirements.
+            """)
 
     for rank, result in enumerate(visible_results, 1):
         t = result.tool

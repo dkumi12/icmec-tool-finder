@@ -51,7 +51,7 @@ INVESTIGATION_TAG_MAP: dict[str, list[str]] = {
     ],
     "digital forensics": [
         "digital_forensics", "disk_analysis", "memory_forensics",
-        "mobile_forensics", "artifact_recovery",
+        "mobile_forensics", "artifact_recovery","disk_imaging",
     ],
     "media authentication": [
         "image_authentication", "tamper_detection", "deepfake_detection",

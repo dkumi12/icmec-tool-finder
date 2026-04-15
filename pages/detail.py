@@ -42,11 +42,11 @@ if score or reasons:
     with score_col:
         st.markdown("##### Relevance Score")
         if score >= 12:
-            st.success(f"### {score} / 17 pts")
+            st.success(f"### {score} / 100 pts")
         elif score >= 6:
-            st.warning(f"### {score} / 17 pts")
+            st.warning(f"### {score} / 100 pts")
         else:
-            st.error(f"### {score} / 17 pts")
+            st.error(f"### {score} / 100 pts")
 
     with reason_col:
         st.markdown("##### Why This Tool Was Recommended")
