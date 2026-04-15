@@ -124,6 +124,6 @@ python -m pytest tests/ -v
 
 ## Acknowledgements
 
-Built in response to **ICMEC Idea #2** with guidance from Anna Meyniel and the ICMEC team.
+Built for the ICMEC Ishango Hackathon in response to ICMEC Idea #2.
 
 [International Centre for Missing & Exploited Children](https://www.icmec.org)
