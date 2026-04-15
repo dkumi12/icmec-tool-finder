@@ -113,12 +113,9 @@ python -m pytest tests/ -v
 
 ## Team
 
-- **David Osei Kumi** — Scoring engine, tool database, UI, deployment
-- **George Mwangi** — Ratings feature, additional tool data
-- **Thierry Donambi** — Team coordination, prototype alignment
-- **Luel Hagos** — Research and tool curation
-- **Mahamat Azibert** — Research and tool curation
-- **Elthiero** — InvestiMatch prototype (parallel approach, SQLite + weighted scoring)
+- **David Osei Kumi**
+- **George Mwangi**
+- **Thierry Donambi**
 
 ---
 
