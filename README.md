@@ -30,20 +30,16 @@ Built for the ICMEC Ishango Hackathon 2026.
 
 Investiqo uses a **transparent, additive scoring engine** — no black-box AI. Each tool is scored against your case inputs across five signals, then normalised to a 0–100% match score. Every recommendation includes a plain-language explanation of why it was matched.
 
-| Signal | How It Works |
-|---|---|
-| **Investigation type match** | +3 per matching capability tag, capped at +9 |
-| **Budget fit** | +2 if within budget, −2 if outside |
-| **Technical skill match** | +2 if tool is appropriate for your level |
-| **Evidence type match** | +1 per matching evidence type, capped at +3 |
-| **Urgency bonus** | +1 for free, publicly available tools when urgency is immediate |
-| **Access gate** | −5 if tool is LE-restricted and user is not law enforcement |
+| Matching Factor | Maximum Impact | How It Works |
+|---|---|---|
+| **Investigation Type** | +38% | Massive boost if the tool's capabilities match your primary goals. |
+| **Evidence Type** | +13% | Moderate boost if the tool supports your exact evidence files. |
+| **Budget Fit** | +8% | Small boost if the tool is within your price range. |
+| **Skill Match** | +8% | Small boost if the tool matches your technical comfort level. |
+| **Urgency** | +4% | Bonus points for free, instant-access tools during emergencies. |
+| **Access Restriction** | −21% Penalty | Heavy deduction if the tool is for law enforcement and you lack clearance. |
 
-Raw score range: −7 to +17 points → normalised to **0–100%**.
-
-- 🟢 **≥ 70%** — strong match
-- 🟡 **40–69%** — partial match
-- 🔴 **< 40%** — weak match
+**Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 
 ---
 
