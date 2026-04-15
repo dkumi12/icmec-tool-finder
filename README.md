@@ -50,7 +50,7 @@ A 5-signal scoring engine runs against a curated database of 84 tools and return
 - Show More — extend results beyond top 5
 - Tool detail page — cost, skill level, platform, legal admissibility, coding requirements, languages
 - Contact & licensing information per tool
-- Community star ratings
+- Community star ratings (saved to local files, no database/login)
 - Tool deprecation and change warnings
 - Suggest a Tool — submit tools not in the database
 - Scoring transparency — expandable explanation on results page
@@ -96,7 +96,8 @@ python -m pytest tests/ -v
 ├── requirements.txt
 ├── data/
 │   ├── tools.json          # 84 curated tools
-│   └── ratings.json        # Community ratings store
+│   ├── ratings.json        # Legacy seed ratings (optional)
+│   └── ratings_log.jsonl   # Investigator rating submissions log
 ├── pages/
 │   ├── search.py           # Main form + results
 │   ├── detail.py           # Tool detail page

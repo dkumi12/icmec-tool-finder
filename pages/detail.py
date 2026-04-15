@@ -3,25 +3,15 @@ Tool Detail Page — ICMEC Tool Finder
 Displays full information for a selected tool with score breakdown.
 """
 
-import json
 import pathlib
 
 import streamlit as st
 from scoring.normalise import parse_coding_requirement, parse_languages
-
-# ── Ratings helpers ───────────────────────────────────────────────────────────
-
-_RATINGS_PATH = pathlib.Path(__file__).parent.parent / "data" / "ratings.json"
-
-def _load_ratings() -> dict:
-    if _RATINGS_PATH.exists():
-        return json.loads(_RATINGS_PATH.read_text(encoding="utf-8"))
-    return {}
-
-def _save_rating(tool_name: str, stars: int) -> None:
-    data = _load_ratings()
-    data.setdefault(tool_name, []).append(stars)
-    _RATINGS_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
+from scoring.ratings import (
+    get_investigator_tool_rating,
+    get_tool_rating_summary,
+    submit_rating,
+)
 
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
@@ -87,34 +77,46 @@ if score or reasons:
 # ── Community Ratings ────────────────────────────────────────────────────────
 
 st.markdown("### Community Rating")
-_all_ratings = _load_ratings()
-_tool_ratings = _all_ratings.get(name, [])
-_rated_key = f"has_rated_{name}"
+if "investigator_name" not in st.session_state:
+    st.session_state.investigator_name = ""
 
-if _tool_ratings:
-    _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
-    _stars = "⭐" * round(_avg)
-    rating_col, submit_col = st.columns([2, 3])
-    with rating_col:
-        st.markdown(f"{_stars} **{_avg} / 5**")
-        st.caption(f"Rated by {len(_tool_ratings)} user(s)")
-    with submit_col:
-        if not st.session_state.get(_rated_key):
-            _user_star = st.feedback("stars", key=f"rating_{name}")
-            if _user_star is not None:
-                _save_rating(name, _user_star + 1)
-                st.session_state[_rated_key] = True
+rating_col, submit_col = st.columns([2, 3])
+with rating_col:
+    avg_rating, rating_count = get_tool_rating_summary(name)
+    if avg_rating is None:
+        st.caption("No ratings yet — be the first.")
+    else:
+        stars = "⭐" * round(avg_rating)
+        st.markdown(f"{stars} **{avg_rating} / 5**")
+        st.caption(f"Rated by {rating_count} investigator submission(s)")
+
+with submit_col:
+    st.info("Used only to track your tool ratings. You can use an anonymous alias (for example: Anonymous-01).")
+    investigator = st.text_input(
+        "Name or alias for ratings only",
+        key=f"investigator_for_{name}",
+        value=st.session_state.investigator_name,
+        placeholder="e.g. Anonymous-01",
+    )
+    st.session_state.investigator_name = investigator
+
+    if investigator.strip():
+        existing_rating = get_investigator_tool_rating(name, investigator)
+        if existing_rating is not None:
+            st.caption(f"Your latest rating: {existing_rating} / 5")
+        user_star = st.feedback("stars", key=f"rating_{name}_{investigator.strip().lower()}")
+        if user_star is not None:
+            saved = submit_rating(
+                tool_name=name,
+                investigator=investigator,
+                stars=user_star + 1,
+                source="detail_page",
+            )
+            if saved:
                 st.toast("Rating submitted — thank you!", icon="⭐")
                 st.rerun()
-else:
-    st.caption("No ratings yet — be the first.")
-    if not st.session_state.get(_rated_key):
-        _user_star = st.feedback("stars", key=f"rating_{name}")
-        if _user_star is not None:
-            _save_rating(name, _user_star + 1)
-            st.session_state[_rated_key] = True
-            st.toast("Rating submitted — thank you!", icon="⭐")
-            st.rerun()
+    else:
+        st.caption("Enter your name/alias to submit a rating.")
 
 st.divider()
 
