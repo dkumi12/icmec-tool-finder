@@ -81,4 +81,4 @@ streamlit run app.py
 ```
 
 ---
-*Built for the ICMEC Ishango Hackathon 2026 — Kigali, Rwanda.*
+*Built for the ICMEC Ishango Hackathon 2026.*
