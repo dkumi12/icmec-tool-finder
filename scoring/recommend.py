@@ -94,8 +94,8 @@ def recommend_tools(
         reasons: list[str] = []
 
         tool_tags = set(t.lower() for t in (tool.get("capability_tags") or []))
-        tool_access = parse_access(tool.get("access_restrictions", ""))
-        tool_pricing = parse_pricing(tool.get("cost_and_licensing", ""))
+        tool_access = parse_access(tool.get("access_restrictions") or "")
+        tool_pricing = parse_pricing(tool.get("cost_and_licensing") or "")
 
         # ── ACCESS GATE ──────────────────────────────────────────
         if tool_access in ("le_only", "restricted") and not query.is_law_enforcement:
@@ -128,14 +128,14 @@ def recommend_tools(
 
         # ── SIGNAL 3: Skill level match (+2) ─────────────────────
         if query.skill_level:
-            tool_skill = parse_skill(tool.get("skill_level", ""))
+            tool_skill = parse_skill(tool.get("skill_level") or "")
             if tool_skill <= user_skill:
                 score += 2
                 # Clean up the skill display: take text before first parenthesis
-                skill_display = tool.get("skill_level", "").split("(")[0].strip()
+                skill_display = (tool.get("skill_level") or "").split("(")[0].strip()
                 reasons.append(f"Matches your skill level ({skill_display})")
             else:
-                skill_display = tool.get("skill_level", "").split("(")[0].strip()
+                skill_display = (tool.get("skill_level") or "").split("(")[0].strip()
                 reasons.append(f"May require higher skill ({skill_display})")
 
         if query.coding_requirement != "any":

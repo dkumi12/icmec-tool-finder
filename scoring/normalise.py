@@ -38,7 +38,7 @@ def _load_enrichment() -> dict[str, dict]:
 
 def parse_pricing(cost_and_licensing: str) -> str:
     """Parse cost_and_licensing string -> 'free' | 'freemium' | 'paid'."""
-    s = cost_and_licensing.lower()
+    s = (cost_and_licensing or "").lower()
     if "open-source" in s or "open source" in s:
         return "free"
     if s.startswith("free") and "freemium" not in s:
@@ -52,7 +52,7 @@ def parse_pricing(cost_and_licensing: str) -> str:
 
 def parse_skill(skill_level: str) -> int:
     """Parse tool's skill_level string -> 1 (beginner) | 2 (intermediate) | 3 (expert)."""
-    s = skill_level.lower()
+    s = (skill_level or "").lower()
     if "beginner" in s:
         return 1
     if "expert" in s or "advanced" in s or "developer" in s:
@@ -78,7 +78,7 @@ def budget_allows(tool_pricing: str, user_budget: str) -> bool:
 
 def parse_access(access_restrictions: str) -> str:
     """Parse access_restrictions string -> 'public' | 'le_only' | 'restricted'."""
-    s = access_restrictions.lower()
+    s = (access_restrictions or "").lower()
     if "public" in s:
         return "public"
     if "strictly" in s:
