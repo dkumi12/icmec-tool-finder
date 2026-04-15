@@ -11,6 +11,7 @@ import streamlit as st
 from scoring.recommend import recommend_tools, UserQuery
 from scoring.tag_maps import INVESTIGATION_TAG_MAP, INPUT_TAG_MAP
 from scoring.normalise import parse_languages
+from scoring.ratings import get_investigator_tool_rating, get_tool_rating_summary, submit_rating
 
 # ── Data Loading ─────────────────────────────────────────────────────────────
 
@@ -121,6 +122,8 @@ if "results" not in st.session_state:
     st.session_state.results = None
 if "search_summary" not in st.session_state:
     st.session_state.search_summary = ""
+if "investigator_name" not in st.session_state:
+    st.session_state.investigator_name = ""
 
 # ── Submit (inside centred column) ───────────────────────────────────────────
 
@@ -163,6 +166,14 @@ if st.session_state.results:
     st.divider()
     st.markdown(f"### Top {display_count} Recommended Tools")
     st.caption(st.session_state.search_summary)
+    with st.container(border=True):
+        st.markdown("#### ⭐ Rating Identity")
+        st.info("Used only to track your tool ratings. You can use an anonymous alias (for example: Anonymous-01).")
+        st.session_state.investigator_name = st.text_input(
+            "Name or alias for ratings only",
+            value=st.session_state.investigator_name,
+            placeholder="e.g. Anonymous-01",
+        )
 
     with st.expander("How are tools scored?"):
         st.markdown("""
@@ -212,19 +223,44 @@ Each tool is scored against your case inputs using these criteria:
             c3.markdown(f"**Platform:** {platform}")
             c4.markdown(f"**Access:** {access}")
 
+            avg_rating, rating_count = get_tool_rating_summary(name)
+            if avg_rating is None:
+                st.caption("Community rating: no ratings yet")
+            else:
+                st.caption(f"Community rating: {avg_rating} / 5 ({rating_count} submissions)")
+
             # ── Why this tool (match reasons) ────────────
             if result.match_reasons:
                 reasons_text = " · ".join(result.match_reasons)
                 st.info(reasons_text, icon="💡")
 
             # ── Actions ──────────────────────────────────
-            btn_left, btn_right, _ = st.columns([1, 1, 3])
+            btn_left, btn_mid, btn_right, _ = st.columns([1, 2, 1, 2])
             with btn_left:
                 if st.button("View Details", key=f"detail_{rank}"):
                     st.session_state.selected_tool = t
                     st.session_state.selected_reasons = result.match_reasons
                     st.session_state.selected_score = score
                     st.switch_page("pages/detail.py")
+            with btn_mid:
+                investigator = st.session_state.investigator_name.strip()
+                if investigator:
+                    existing_rating = get_investigator_tool_rating(name, investigator)
+                    if existing_rating is not None:
+                        st.caption(f"Your rating: {existing_rating} / 5")
+                    rating = st.feedback("stars", key=f"search_rating_{name.lower().replace(' ', '_')}")
+                    if rating is not None:
+                        saved = submit_rating(
+                            tool_name=name,
+                            investigator=investigator,
+                            stars=rating + 1,
+                            source="search_page",
+                        )
+                        if saved:
+                            st.toast(f"Saved rating for {name}", icon="⭐")
+                            st.rerun()
+                else:
+                    st.caption("Enter investigator name above to rate directly here")
             with btn_right:
                 if url:
                     st.link_button("Visit Website", url)
