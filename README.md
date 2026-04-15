@@ -64,7 +64,7 @@ The engine in `scoring/rule_based.py` calculates a tool's relevance using the fo
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/dkumi12/icmec-tool-finder.git](https://github.com/dkumi12/icmec-tool-finder.git)
+git clone https://github.com/dkumi12/icmec-tool-finder.git
 cd icmec-tool-finder
 ```
 
