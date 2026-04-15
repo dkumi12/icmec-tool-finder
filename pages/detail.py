@@ -237,3 +237,4 @@ if meta and isinstance(meta, dict) and meta:
         display_key = key.replace("_", " ").title()
         st.markdown(f"**{display_key}**")
         st.write(value)
+
