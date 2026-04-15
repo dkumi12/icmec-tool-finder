@@ -80,6 +80,7 @@ if score or reasons:
 st.markdown("### Community Rating")
 _all_ratings = _load_ratings()
 _tool_ratings = _all_ratings.get(name, [])
+_rated_key = f"has_rated_{name}"
 
 if _tool_ratings:
     _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
@@ -89,18 +90,24 @@ if _tool_ratings:
         st.markdown(f"{_stars} **{_avg} / 5**")
         st.caption(f"Rated by {len(_tool_ratings)} user(s)")
     with submit_col:
+        if st.session_state.get(_rated_key):
+            st.success("Rating submitted — thank you!")
+        else:
+            _user_star = st.feedback("stars", key=f"rating_{name}")
+            if _user_star is not None:
+                _save_rating(name, _user_star + 1)
+                st.session_state[_rated_key] = True
+                st.rerun()
+else:
+    st.caption("No ratings yet — be the first.")
+    if st.session_state.get(_rated_key):
+        st.success("Rating submitted — thank you!")
+    else:
         _user_star = st.feedback("stars", key=f"rating_{name}")
         if _user_star is not None:
             _save_rating(name, _user_star + 1)
-            st.success("Rating submitted!")
+            st.session_state[_rated_key] = True
             st.rerun()
-else:
-    st.caption("No ratings yet — be the first.")
-    _user_star = st.feedback("stars", key=f"rating_{name}")
-    if _user_star is not None:
-        _save_rating(name, _user_star + 1)
-        st.success("Rating submitted!")
-        st.rerun()
 
 st.divider()
 
