@@ -2,7 +2,11 @@
     {
         "tool_name": "Autopsy ",
         "vendor": "Basis Technology",
-        "capability_tags": ["disk_analysis", "digital_forensics", "open_source"],
+        "capability_tags": [
+            "disk_analysis",
+            "digital_forensics",
+            "open_source"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Widely accepted in global courts; considered a standard in digital forensics.",
         "cost_and_licensing": "Free / Open-source",
@@ -11,13 +15,20 @@
         "platform_and_integration": "Windows, Linux, macOS. Built on The Sleuth Kit.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive community documentation, official training available via Basis Technology.",
-        "additional_metadata": {"primary_focus": "Hard drive and smartphone forensics"},
-        "url": "https://www.autopsy.com/"
+        "additional_metadata": {
+            "primary_focus": "Hard drive and smartphone forensics"
+        },
+        "url": "https://www.autopsy.com/",
+        "status": "active"
     },
     {
         "tool_name": "The Sleuth Kit (TSK) ",
         "vendor": "Brian Carrier",
-        "capability_tags": ["disk_analysis", "file_system_forensics", "cli"],
+        "capability_tags": [
+            "disk_analysis",
+            "file_system_forensics",
+            "cli"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Widely accepted; forms the underlying logic for many commercial tools.",
         "cost_and_licensing": "Free / Open-source",
@@ -26,13 +37,21 @@
         "platform_and_integration": "Linux, Windows, macOS. Core library for Autopsy.",
         "last_verified": "2024-05",
         "documentation_and_support": "Wiki and community forums available at sleuthkit.org.",
-        "additional_metadata": {"interface": "Command Line Interface"},
-        "url": "https://www.sleuthkit.org/sleuthkit/"
+        "additional_metadata": {
+            "interface": "Command Line Interface"
+        },
+        "url": "https://www.sleuthkit.org/sleuthkit/",
+        "status": "active"
     },
     {
         "tool_name": "Magnet AXIOM ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["digital_forensics", "mobile_extraction", "cloud_forensics", "artifact_recovery"],
+        "capability_tags": [
+            "digital_forensics",
+            "mobile_extraction",
+            "cloud_forensics",
+            "artifact_recovery"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly regarded and routinely accepted in courts worldwide.",
         "cost_and_licensing": "Enterprise / Subscription (approx. $4,000+ per license)",
@@ -41,13 +60,20 @@
         "platform_and_integration": "Windows. Integrates with GrayKey and Magnet Automate.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive official documentation, certifications (MCFE), and premium support.",
-        "additional_metadata": {"specialty": "Excellent at recovering internet and chat artifacts"},
-        "url": "https://www.magnetforensics.com/products/magnet-axiom/"
+        "additional_metadata": {
+            "specialty": "Excellent at recovering internet and chat artifacts"
+        },
+        "url": "https://www.magnetforensics.com/products/magnet-axiom/",
+        "status": "active"
     },
     {
         "tool_name": "Cellebrite UFED ",
         "vendor": "Cellebrite",
-        "capability_tags": ["mobile_extraction", "bypassing_locks", "physical_dump"],
+        "capability_tags": [
+            "mobile_extraction",
+            "bypassing_locks",
+            "physical_dump"
+        ],
         "jurisdictional_legality": "Legal with restrictions (export controls may apply).",
         "evidentiary_admissibility": "Gold standard for mobile forensics; widely accepted globally.",
         "cost_and_licensing": "Enterprise / Subscription (Hardware/Software combos, typically $10,000+)",
@@ -56,13 +82,20 @@
         "platform_and_integration": "Windows, Proprietary Hardware. Integrates with Physical Analyzer.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official training (CCLO, CCPA), strict NDA-bound support.",
-        "additional_metadata": {"hardware_component": "Often involves specialized cables and proprietary hardware"},
-        "url": "https://cellebrite.com/en/products/ufed/"
+        "additional_metadata": {
+            "hardware_component": "Often involves specialized cables and proprietary hardware"
+        },
+        "url": "https://cellebrite.com/en/products/ufed/",
+        "status": "active"
     },
     {
         "tool_name": "Cellebrite Physical Analyzer ",
         "vendor": "Cellebrite",
-        "capability_tags": ["data_decoding", "mobile_forensics", "reporting"],
+        "capability_tags": [
+            "data_decoding",
+            "mobile_forensics",
+            "reporting"
+        ],
         "jurisdictional_legality": "Legal with restrictions (export controls).",
         "evidentiary_admissibility": "Widely accepted as the standard for parsing mobile extractions.",
         "cost_and_licensing": "Enterprise / Subscription (Often bundled with UFED)",
@@ -71,13 +104,20 @@
         "platform_and_integration": "Windows. Parses UFED extractions.",
         "last_verified": "2024-05",
         "documentation_and_support": "Comprehensive official training and support portals.",
-        "additional_metadata": {"primary_function": "Parses hex and raw data into readable chats/locations"},
-        "url": "https://cellebrite.com/"
+        "additional_metadata": {
+            "primary_function": "Parses hex and raw data into readable chats/locations"
+        },
+        "url": "https://cellebrite.com/",
+        "status": "active"
     },
     {
         "tool_name": "EnCase Forensic ",
         "vendor": "OpenText",
-        "capability_tags": ["disk_analysis", "digital_forensics", "triage"],
+        "capability_tags": [
+            "disk_analysis",
+            "digital_forensics",
+            "triage"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Historically one of the most court-tested tools globally.",
         "cost_and_licensing": "Enterprise / Subscription (approx. $3,000+)",
@@ -86,28 +126,42 @@
         "platform_and_integration": "Windows. Proprietary .E01 forensic image format widely adopted.",
         "last_verified": "2024-05",
         "documentation_and_support": "EnCE certification program and formal support.",
-        "additional_metadata": {"legacy": "Pioneered the .E01 forensic image format"},
-        "url": "https://www.opentext.com/products/forensic"
+        "additional_metadata": {
+            "legacy": "Pioneered the .E01 forensic image format"
+        },
+        "url": "https://www.opentext.com/products/forensic",
+        "status": "active"
     },
     {
         "tool_name": "X-Ways Forensics ",
         "vendor": "X-Ways Software Technology AG",
-        "capability_tags": ["disk_analysis", "digital_forensics", "hex_editing"],
+        "capability_tags": [
+            "disk_analysis",
+            "digital_forensics",
+            "hex_editing"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly respected and admissible in courts.",
-        "cost_and_licensing": "Subscription / Enterprise (approx. €1,000+)",
+        "cost_and_licensing": "Subscription / Enterprise (approx. \u20ac1,000+)",
         "access_restrictions": "Publicly purchasable but primarily targeted at professionals.",
         "skill_level": "Expert",
         "platform_and_integration": "Windows (highly portable, runs from USB).",
         "last_verified": "2024-05",
         "documentation_and_support": "Manuals, official training, and active user forums.",
-        "additional_metadata": {"performance": "Known for extremely low resource usage and high speed"},
-        "url": "https://www.x-ways.net/"
+        "additional_metadata": {
+            "performance": "Known for extremely low resource usage and high speed"
+        },
+        "url": "https://www.x-ways.net/",
+        "status": "active"
     },
     {
         "tool_name": "FTK (Forensic Toolkit) ",
         "vendor": "Extero",
-        "capability_tags": ["disk_analysis", "database_driven", "password_cracking"],
+        "capability_tags": [
+            "disk_analysis",
+            "database_driven",
+            "password_cracking"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Widely accepted; another historical pillar of digital forensics.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -116,13 +170,20 @@
         "platform_and_integration": "Windows. Heavy reliance on backend database (PostgreSQL/Oracle).",
         "last_verified": "2024-05",
         "documentation_and_support": "ACE certification and formal vendor support.",
-        "additional_metadata": {"processing": "Known for heavy initial indexing enabling fast subsequent searches"},
-        "url": "https://www.exterro.com/digital-forensics-software/ftk-forensic-toolkit"
+        "additional_metadata": {
+            "processing": "Known for heavy initial indexing enabling fast subsequent searches"
+        },
+        "url": "https://www.exterro.com/digital-forensics-software/ftk-forensic-toolkit",
+        "status": "active"
     },
     {
         "tool_name": "FTK Imager ",
         "vendor": "Extero",
-        "capability_tags": ["disk_imaging", "triage", "memory_capture"],
+        "capability_tags": [
+            "disk_imaging",
+            "triage",
+            "memory_capture"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Industry standard for creating forensic images; completely acceptable.",
         "cost_and_licensing": "Free",
@@ -131,13 +192,21 @@
         "platform_and_integration": "Windows. Outputs .E01, .DD, .AD1 formats.",
         "last_verified": "2024-05",
         "documentation_and_support": "Community forums and basic documentation.",
-        "additional_metadata": {"usage": "Standalone tool, does not require full FTK license"},
-        "url": "https://www.exterro.com/digital-forensics-software/ftk-imager"
+        "additional_metadata": {
+            "usage": "Standalone tool, does not require full FTK license"
+        },
+        "url": "https://www.exterro.com/digital-forensics-software/ftk-imager",
+        "status": "active"
     },
     {
         "tool_name": "Belkasoft Evidence Center ",
         "vendor": "Belkasoft",
-        "capability_tags": ["digital_forensics", "triage", "memory_analysis", "mobile_forensics"],
+        "capability_tags": [
+            "digital_forensics",
+            "triage",
+            "memory_analysis",
+            "mobile_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Routinely accepted in court.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -146,13 +215,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive vendor support and training.",
-        "additional_metadata": {"interface": "Known for user-friendly interface for quick artifact recovery"},
-        "url": "https://belkasoft.com/"
+        "additional_metadata": {
+            "interface": "Known for user-friendly interface for quick artifact recovery"
+        },
+        "url": "https://belkasoft.com/",
+        "status": "active"
     },
     {
         "tool_name": "Bulk Extractor ",
         "vendor": "Simson Garfinkel",
-        "capability_tags": ["data_carving", "pii_extraction", "triage"],
+        "capability_tags": [
+            "data_carving",
+            "pii_extraction",
+            "triage"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Accepted for investigative leads and data triage.",
         "cost_and_licensing": "Free / Open-source",
@@ -161,13 +237,20 @@
         "platform_and_integration": "Linux, Windows. CLI and GUI available.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation and academic papers.",
-        "additional_metadata": {"speed": "Extremely fast due to ignoring file system structures"},
-        "url": "https://github.com/simsong/bulk_extractor"
+        "additional_metadata": {
+            "speed": "Extremely fast due to ignoring file system structures"
+        },
+        "url": "https://github.com/simsong/bulk_extractor",
+        "status": "unverified"
     },
     {
         "tool_name": "Volatility Framework ",
         "vendor": "Volatility Foundation",
-        "capability_tags": ["memory_forensics", "malware_analysis", "incident_response"],
+        "capability_tags": [
+            "memory_forensics",
+            "malware_analysis",
+            "incident_response"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "The gold standard for volatile memory analysis in court.",
         "cost_and_licensing": "Free / Open-source",
@@ -176,13 +259,20 @@
         "platform_and_integration": "Python-based; runs on Linux, Windows, macOS.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive wiki, books (The Art of Memory Forensics), and active community.",
-        "additional_metadata": {"versions": "Volatility 2 (Python 2) and Volatility 3 (Python 3)"},
-        "url": "https://volatilityfoundation.org/"
+        "additional_metadata": {
+            "versions": "Volatility 2 (Python 2) and Volatility 3 (Python 3)"
+        },
+        "url": "https://volatilityfoundation.org/",
+        "status": "active"
     },
     {
         "tool_name": "Redline ",
         "vendor": "FireEye / Trellix",
-        "capability_tags": ["memory_analysis", "incident_response", "ioc_scanning"],
+        "capability_tags": [
+            "memory_analysis",
+            "incident_response",
+            "ioc_scanning"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Accepted for incident response and threat hunting.",
         "cost_and_licensing": "Free",
@@ -191,13 +281,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor guides and community tutorials.",
-        "additional_metadata": {"usage": "Often used to analyze memory dumps against IOCs"},
-        "url": "https://www.trellix.com/"
+        "additional_metadata": {
+            "usage": "Often used to analyze memory dumps against IOCs"
+        },
+        "url": "https://www.trellix.com/",
+        "status": "active"
     },
     {
         "tool_name": "SIFT Workstation ",
         "vendor": "SANS Institute",
-        "capability_tags": ["forensic_environment", "disk_analysis", "memory_analysis"],
+        "capability_tags": [
+            "forensic_environment",
+            "disk_analysis",
+            "memory_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Comprises tools that are individually accepted in court.",
         "cost_and_licensing": "Free / Open-source",
@@ -206,13 +303,19 @@
         "platform_and_integration": "Ubuntu Linux VM.",
         "last_verified": "2024-05",
         "documentation_and_support": "SANS training courses (FOR508, etc.) and extensive community support.",
-        "additional_metadata": {"type": "A pre-configured virtual machine environment"},
-        "url": "https://www.sans.org/tools/sift-workstation"
+        "additional_metadata": {
+            "type": "A pre-configured virtual machine environment"
+        },
+        "url": "https://www.sans.org/tools/sift-workstation",
+        "status": "active"
     },
     {
         "tool_name": "CAINE ",
         "vendor": "CAINE Live USB/DVD",
-        "capability_tags": ["forensic_environment", "live_response"],
+        "capability_tags": [
+            "forensic_environment",
+            "live_response"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Accepted; tools within are standard forensic utilities.",
         "cost_and_licensing": "Free / Open-source",
@@ -221,13 +324,20 @@
         "platform_and_integration": "Linux Live OS.",
         "last_verified": "2024-05",
         "documentation_and_support": "Community documentation.",
-        "additional_metadata": {"feature": "Blocks all block devices in read-only mode by default"},
-        "url": "https://www.caine-live.net/"
+        "additional_metadata": {
+            "feature": "Blocks all block devices in read-only mode by default"
+        },
+        "url": "https://www.caine-live.net/",
+        "status": "active"
     },
     {
         "tool_name": "Paladin ",
         "vendor": "Sumuri",
-        "capability_tags": ["forensic_environment", "triage", "disk_imaging"],
+        "capability_tags": [
+            "forensic_environment",
+            "triage",
+            "disk_imaging"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Accepted.",
         "cost_and_licensing": "Free (donation suggested) / Commercial USBs available",
@@ -236,13 +346,20 @@
         "platform_and_integration": "Linux Live OS (Ubuntu-based).",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support and guides.",
-        "additional_metadata": {"feature": "Known for the PALADIN Toolbox GUI for easy imaging"},
-        "url": "https://sumuri.com/software/paladin/"
+        "additional_metadata": {
+            "feature": "Known for the PALADIN Toolbox GUI for easy imaging"
+        },
+        "url": "https://sumuri.com/software/paladin/",
+        "status": "active"
     },
     {
         "tool_name": "Oxygen Forensics Detective ",
         "vendor": "Oxygen Forensics",
-        "capability_tags": ["mobile_forensics", "cloud_extraction", "drone_forensics"],
+        "capability_tags": [
+            "mobile_forensics",
+            "cloud_extraction",
+            "drone_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Widely accepted in courts.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -251,13 +368,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official training and vendor support.",
-        "additional_metadata": {"specialty": "Strong cloud data extraction capabilities"},
-        "url": "https://www.oxygenforensics.com/"
+        "additional_metadata": {
+            "specialty": "Strong cloud data extraction capabilities"
+        },
+        "url": "https://www.oxygenforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "MSAB XRY ",
         "vendor": "MSAB",
-        "capability_tags": ["mobile_extraction", "data_decoding"],
+        "capability_tags": [
+            "mobile_extraction",
+            "data_decoding"
+        ],
         "jurisdictional_legality": "Legal with restrictions.",
         "evidentiary_admissibility": "Widely accepted.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -266,13 +389,20 @@
         "platform_and_integration": "Windows, Proprietary hardware.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official training and support.",
-        "additional_metadata": {"competition": "Direct competitor to Cellebrite UFED"},
-        "url": "https://www.msab.com/product/xry-extract/"
+        "additional_metadata": {
+            "competition": "Direct competitor to Cellebrite UFED"
+        },
+        "url": "https://www.msab.com/product/xry-extract/",
+        "status": "active"
     },
     {
         "tool_name": "GrayKey ",
         "vendor": "Magnet Forensics (formerly Grayshift)",
-        "capability_tags": ["bypassing_locks", "ios_forensics", "android_forensics"],
+        "capability_tags": [
+            "bypassing_locks",
+            "ios_forensics",
+            "android_forensics"
+        ],
         "jurisdictional_legality": "Legal with strict restrictions.",
         "evidentiary_admissibility": "Accepted, though extraction methods are often protected under NDA.",
         "cost_and_licensing": "Enterprise / Subscription (Very high cost, $15,000+)",
@@ -281,13 +411,19 @@
         "platform_and_integration": "Proprietary hardware device. Integrates with Magnet AXIOM.",
         "last_verified": "2024-05",
         "documentation_and_support": "Strictly vendor-controlled training and support.",
-        "additional_metadata": {"specialty": "State-of-the-art brute forcing and vulnerability exploitation for modern smartphones"},
-        "url": "https://www.magnetforensics.com/"
+        "additional_metadata": {
+            "specialty": "State-of-the-art brute forcing and vulnerability exploitation for modern smartphones"
+        },
+        "url": "https://www.magnetforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Magnet GrayKey ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["bypassing_locks", "mobile_extraction"],
+        "capability_tags": [
+            "bypassing_locks",
+            "mobile_extraction"
+        ],
         "jurisdictional_legality": "Legal with strict restrictions.",
         "evidentiary_admissibility": "Accepted.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -296,13 +432,20 @@
         "platform_and_integration": "Proprietary hardware.",
         "last_verified": "2024-05",
         "documentation_and_support": "NDA-bound support.",
-        "additional_metadata": {"note": "Same product line as GrayKey following Magnet's acquisition of Grayshift"},
-        "url": "https://www.magnetforensics.com/"
+        "additional_metadata": {
+            "note": "Same product line as GrayKey following Magnet's acquisition of Grayshift"
+        },
+        "url": "https://www.magnetforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Maltego ",
         "vendor": "Maltego Technologies",
-        "capability_tags": ["osint", "link_analysis", "data_visualization"],
+        "capability_tags": [
+            "osint",
+            "link_analysis",
+            "data_visualization"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Used for intelligence and lead generation; visualization can be court-admissible.",
         "cost_and_licensing": "Freemium (Community Edition) / Enterprise ($1,000+)",
@@ -311,13 +454,20 @@
         "platform_and_integration": "Windows, Linux, macOS. Integrates with Shodan, VirusTotal, Pipl via 'Transforms'.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive vendor documentation, API integration guides.",
-        "additional_metadata": {"feature": "Graph-based visualization of network and social links"},
-        "url": "https://www.maltego.com/"
+        "additional_metadata": {
+            "feature": "Graph-based visualization of network and social links"
+        },
+        "url": "https://www.maltego.com/",
+        "status": "active"
     },
     {
         "tool_name": "SpiderFoot ",
         "vendor": "Intel471",
-        "capability_tags": ["osint", "automation", "attack_surface_mapping"],
+        "capability_tags": [
+            "osint",
+            "automation",
+            "attack_surface_mapping"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool; raw data must be authenticated separately.",
         "cost_and_licensing": "Free / Open-source (HX version is Enterprise)",
@@ -326,13 +476,20 @@
         "platform_and_integration": "Linux, Web-based. Integrates with 200+ APIs.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation and vendor support.",
-        "additional_metadata": {"usage": "Automates OSINT data collection across multiple sources"},
-        "url": "https://www.spiderfoot.net/"
+        "additional_metadata": {
+            "usage": "Automates OSINT data collection across multiple sources"
+        },
+        "url": "https://www.spiderfoot.net/",
+        "status": "active"
     },
     {
         "tool_name": "theHarvester ",
         "vendor": "Christian Martorella / Edge-Security",
-        "capability_tags": ["osint", "email_harvesting", "subdomain_enumeration"],
+        "capability_tags": [
+            "osint",
+            "email_harvesting",
+            "subdomain_enumeration"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Free / Open-source",
@@ -341,13 +498,20 @@
         "platform_and_integration": "Python CLI.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"primary_target": "Gathering emails, names, subdomains, IPs from public sources"},
-        "url": "https://github.com/laramies/theHarvester"
+        "additional_metadata": {
+            "primary_target": "Gathering emails, names, subdomains, IPs from public sources"
+        },
+        "url": "https://github.com/laramies/theHarvester",
+        "status": "active"
     },
     {
         "tool_name": "Recon-ng ",
         "vendor": "Tim Tomes (LaNMaSteR53)",
-        "capability_tags": ["osint", "framework", "web_reconnaissance"],
+        "capability_tags": [
+            "osint",
+            "framework",
+            "web_reconnaissance"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Free / Open-source",
@@ -356,13 +520,20 @@
         "platform_and_integration": "Python CLI (Metasploit-like interface).",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub wiki.",
-        "additional_metadata": {"structure": "Modular framework utilizing web-based APIs"},
-        "url": "https://github.com/lanmaster53/recon-ng"
+        "additional_metadata": {
+            "structure": "Modular framework utilizing web-based APIs"
+        },
+        "url": "https://github.com/lanmaster53/recon-ng",
+        "status": "active"
     },
     {
         "tool_name": "Shodan ",
         "vendor": "Shodan",
-        "capability_tags": ["osint", "iot_search", "vulnerability_scanning"],
+        "capability_tags": [
+            "osint",
+            "iot_search",
+            "vulnerability_scanning"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Freemium / Enterprise APIs",
@@ -371,13 +542,20 @@
         "platform_and_integration": "Web-based, CLI, API integrations with Maltego/SpiderFoot.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive developer documentation.",
-        "additional_metadata": {"description": "Search engine for internet-connected devices"},
-        "url": "https://www.shodan.io/"
+        "additional_metadata": {
+            "description": "Search engine for internet-connected devices"
+        },
+        "url": "https://www.shodan.io/",
+        "status": "active"
     },
     {
         "tool_name": "Hunchly ",
         "vendor": "Dark River Systems Inc.",
-        "capability_tags": ["osint", "web_capture", "evidence_preservation"],
+        "capability_tags": [
+            "osint",
+            "web_capture",
+            "evidence_preservation"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible; explicitly designed to preserve chain of custody for web OSINT.",
         "cost_and_licensing": "Subscription (approx. $130/year)",
@@ -386,13 +564,20 @@
         "platform_and_integration": "Chrome Extension / Chromium browsers.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor guides and training.",
-        "additional_metadata": {"feature": "Automatically hashes and timestamps all captured web pages"},
-        "url": "https://www.hunch.ly/"
+        "additional_metadata": {
+            "feature": "Automatically hashes and timestamps all captured web pages"
+        },
+        "url": "https://www.hunch.ly/",
+        "status": "active"
     },
     {
         "tool_name": "ShadowDragon Horizon ",
         "vendor": "ShadowDragon",
-        "capability_tags": ["osint", "social_media_intelligence", "link_analysis"],
+        "capability_tags": [
+            "osint",
+            "social_media_intelligence",
+            "link_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence and lead generation.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -401,13 +586,20 @@
         "platform_and_integration": "Web-based, API. Integrates with Maltego.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support and training.",
-        "additional_metadata": {"focus": "Deep mapping of aliases and social media footprints"},
-        "url": "https://shadowdragon.io/"
+        "additional_metadata": {
+            "focus": "Deep mapping of aliases and social media footprints"
+        },
+        "url": "https://shadowdragon.io/",
+        "status": "active"
     },
     {
         "tool_name": "Social Links Crimewall ",
         "vendor": "Social Links",
-        "capability_tags": ["osint", "link_analysis", "case_management"],
+        "capability_tags": [
+            "osint",
+            "link_analysis",
+            "case_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -416,13 +608,20 @@
         "platform_and_integration": "Web-based. Integrates with Maltego and i2.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"feature": "AI-driven entity extraction from social media"},
-        "url": "https://sociallinks.io/"
+        "additional_metadata": {
+            "feature": "AI-driven entity extraction from social media"
+        },
+        "url": "https://sociallinks.io/",
+        "status": "active"
     },
     {
-        "tool_name": "i2 Analyst’s Notebook ",
+        "tool_name": "i2 Analyst\u2019s Notebook ",
         "vendor": "Harris Computer (formerly IBM)",
-        "capability_tags": ["link_analysis", "data_visualization", "intelligence_analysis"],
+        "capability_tags": [
+            "link_analysis",
+            "data_visualization",
+            "intelligence_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Visualizations are frequently used as demonstrative evidence in court.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -431,13 +630,20 @@
         "platform_and_integration": "Windows. Integrates with major databases.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive formal training and certification.",
-        "additional_metadata": {"status": "Industry standard for complex criminal network visualization"},
-        "url": "https://www.i2group.com/"
+        "additional_metadata": {
+            "status": "Industry standard for complex criminal network visualization"
+        },
+        "url": "https://www.i2group.com/",
+        "status": "active"
     },
     {
         "tool_name": "Recorded Future ",
         "vendor": "Recorded Future (Mastercard)",
-        "capability_tags": ["threat_intelligence", "dark_web_monitoring", "osint"],
+        "capability_tags": [
+            "threat_intelligence",
+            "dark_web_monitoring",
+            "osint"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Enterprise / Subscription (Very high cost)",
@@ -446,13 +652,20 @@
         "platform_and_integration": "Web-based, robust API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Premium vendor support.",
-        "additional_metadata": {"focus": "Real-time threat intelligence graphing and dark web scraping"},
-        "url": "https://www.recordedfuture.com/"
+        "additional_metadata": {
+            "focus": "Real-time threat intelligence graphing and dark web scraping"
+        },
+        "url": "https://www.recordedfuture.com/",
+        "status": "active"
     },
     {
         "tool_name": "OSINT Framework ",
         "vendor": "Justin Nordine",
-        "capability_tags": ["osint", "directory", "resource_mapping"],
+        "capability_tags": [
+            "osint",
+            "directory",
+            "resource_mapping"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Not a tool itself, but a directory of tools.",
         "cost_and_licensing": "Free",
@@ -461,13 +674,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Community updated.",
-        "additional_metadata": {"type": "A visual mind-map linking to hundreds of OSINT resources"},
-        "url": "https://osintframework.com/"
+        "additional_metadata": {
+            "type": "A visual mind-map linking to hundreds of OSINT resources"
+        },
+        "url": "https://osintframework.com/",
+        "status": "active"
     },
     {
         "tool_name": "Lampyre ",
         "vendor": "Lampyre",
-        "capability_tags": ["osint", "link_analysis", "data_visualization"],
+        "capability_tags": [
+            "osint",
+            "link_analysis",
+            "data_visualization"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Freemium / Subscription",
@@ -476,13 +696,20 @@
         "platform_and_integration": "Windows, Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor documentation.",
-        "additional_metadata": {"feature": "One-click search across multiple data sources"},
-        "url": "https://lampyre.io/"
+        "additional_metadata": {
+            "feature": "One-click search across multiple data sources"
+        },
+        "url": "https://lampyre.io/",
+        "status": "active"
     },
     {
         "tool_name": "Videris ",
         "vendor": "Blackdot Solutions",
-        "capability_tags": ["osint", "investigations_platform", "corporate_intelligence"],
+        "capability_tags": [
+            "osint",
+            "investigations_platform",
+            "corporate_intelligence"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Enterprise",
@@ -491,13 +718,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"focus": "Financial crime and corporate risk investigations"},
-        "url": "https://blackdotsolutions.com/"
+        "additional_metadata": {
+            "focus": "Financial crime and corporate risk investigations"
+        },
+        "url": "https://blackdotsolutions.com/",
+        "status": "active"
     },
     {
         "tool_name": "Sherlock ",
         "vendor": "Open Source Community",
-        "capability_tags": ["osint", "username_enumeration"],
+        "capability_tags": [
+            "osint",
+            "username_enumeration"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Free / Open-source",
@@ -506,13 +739,20 @@
         "platform_and_integration": "Python CLI.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"function": "Searches for a specific username across hundreds of social networks"},
-        "url": "https://github.com/sherlock-project/sherlock"
+        "additional_metadata": {
+            "function": "Searches for a specific username across hundreds of social networks"
+        },
+        "url": "https://github.com/sherlock-project/sherlock",
+        "status": "active"
     },
     {
         "tool_name": "Maigret ",
         "vendor": "Open Source Community",
-        "capability_tags": ["osint", "username_enumeration", "report_generation"],
+        "capability_tags": [
+            "osint",
+            "username_enumeration",
+            "report_generation"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence tool.",
         "cost_and_licensing": "Free / Open-source",
@@ -521,13 +761,20 @@
         "platform_and_integration": "Python CLI.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"relation": "A fork/improvement of Sherlock with HTML/PDF reporting"},
-        "url": "https://github.com/soxoj/maigret"
+        "additional_metadata": {
+            "relation": "A fork/improvement of Sherlock with HTML/PDF reporting"
+        },
+        "url": "https://github.com/soxoj/maigret",
+        "status": "active"
     },
     {
         "tool_name": "ExifTool ",
         "vendor": "Phil Harvey",
-        "capability_tags": ["metadata_extraction", "image_forensics", "cli"],
+        "capability_tags": [
+            "metadata_extraction",
+            "image_forensics",
+            "cli"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible and considered the industry standard for metadata extraction.",
         "cost_and_licensing": "Free / Open-source",
@@ -536,13 +783,20 @@
         "platform_and_integration": "Linux, Windows, macOS. Integrated into almost all major forensic suites.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive official documentation and community support.",
-        "additional_metadata": {"capability": "Reads, writes, and edits meta information in a wide variety of files"},
-        "url": "https://exiftool.org/"
+        "additional_metadata": {
+            "capability": "Reads, writes, and edits meta information in a wide variety of files"
+        },
+        "url": "https://exiftool.org/",
+        "status": "active"
     },
     {
         "tool_name": "Project Arachnid ",
         "vendor": "Canadian Centre for Child Protection",
-        "capability_tags": ["csam_detection", "web_crawling", "hash_matching"],
+        "capability_tags": [
+            "csam_detection",
+            "web_crawling",
+            "hash_matching"
+        ],
         "jurisdictional_legality": "Legal for authorized entities.",
         "evidentiary_admissibility": "Used for detection and takedown notices; leads to admissible warrants.",
         "cost_and_licensing": "Free for partners / NCMEC affiliated",
@@ -551,13 +805,20 @@
         "platform_and_integration": "API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Partner support.",
-        "additional_metadata": {"focus": "Proactive crawling and issuance of takedown notices for CSAM"},
-        "url": "https://protectchildren.ca/en/"
+        "additional_metadata": {
+            "focus": "Proactive crawling and issuance of takedown notices for CSAM"
+        },
+        "url": "https://protectchildren.ca/en/",
+        "status": "active"
     },
     {
         "tool_name": "Magnet Verify ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["csam_detection", "ai_classification", "triage"],
+        "capability_tags": [
+            "csam_detection",
+            "ai_classification",
+            "triage"
+        ],
         "jurisdictional_legality": "Fully legal for LE.",
         "evidentiary_admissibility": "Accepted for triage and probable cause.",
         "cost_and_licensing": "Enterprise",
@@ -566,13 +827,20 @@
         "platform_and_integration": "Windows. Integrates with Magnet AXIOM.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"function": "Uses AI to identify and categorize CSAM and illicit media rapidly"},
-        "url": "https://www.magnetforensics.com/"
+        "additional_metadata": {
+            "function": "Uses AI to identify and categorize CSAM and illicit media rapidly"
+        },
+        "url": "https://www.magnetforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Amped Authenticate ",
         "vendor": "Amped Software",
-        "capability_tags": ["image_authentication", "tamper_detection", "media_forensics"],
+        "capability_tags": [
+            "image_authentication",
+            "tamper_detection",
+            "media_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible; standard for digital image authentication in court.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -581,13 +849,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training and comprehensive manuals.",
-        "additional_metadata": {"use_case": "Detecting deepfakes, photoshops, and verifying camera source"},
-        "url": "https://ampedsoftware.com/authenticate"
+        "additional_metadata": {
+            "use_case": "Detecting deepfakes, photoshops, and verifying camera source"
+        },
+        "url": "https://ampedsoftware.com/authenticate",
+        "status": "active"
     },
     {
         "tool_name": "Hive Moderation ",
         "vendor": "Hive",
-        "capability_tags": ["content_moderation", "ai_classification", "csam_detection"],
+        "capability_tags": [
+            "content_moderation",
+            "ai_classification",
+            "csam_detection"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Intelligence and moderation tool.",
         "cost_and_licensing": "Enterprise API",
@@ -596,13 +871,19 @@
         "platform_and_integration": "Cloud API.",
         "last_verified": "2024-05",
         "documentation_and_support": "API documentation.",
-        "additional_metadata": {"focus": "Automated visual moderation for tech platforms"},
-        "url": "https://thehive.ai/"
+        "additional_metadata": {
+            "focus": "Automated visual moderation for tech platforms"
+        },
+        "url": "https://thehive.ai/",
+        "status": "active"
     },
     {
         "tool_name": "Sensity AI ",
         "vendor": "Sensity",
-        "capability_tags": ["deepfake_detection", "threat_intelligence"],
+        "capability_tags": [
+            "deepfake_detection",
+            "threat_intelligence"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Expert testimony required.",
         "cost_and_licensing": "Enterprise",
@@ -611,13 +892,20 @@
         "platform_and_integration": "Web-based / API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"specialty": "Specializes in visual threat intelligence and deepfake detection"},
-        "url": "https://sensity.ai/"
+        "additional_metadata": {
+            "specialty": "Specializes in visual threat intelligence and deepfake detection"
+        },
+        "url": "https://sensity.ai/",
+        "status": "active"
     },
     {
         "tool_name": "SemanticS21 VisionX ",
         "vendor": "SemanticS21",
-        "capability_tags": ["csam_categorization", "ai_analysis", "victim_identification"],
+        "capability_tags": [
+            "csam_categorization",
+            "ai_analysis",
+            "victim_identification"
+        ],
         "jurisdictional_legality": "Fully legal for LE.",
         "evidentiary_admissibility": "Accepted for categorization and triage in CSAM cases.",
         "cost_and_licensing": "Enterprise",
@@ -626,13 +914,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"recognition": "Highly awarded by law enforcement for victim identification in CSAM"},
-        "url": "https://semantics21.com/"
+        "additional_metadata": {
+            "recognition": "Highly awarded by law enforcement for victim identification in CSAM"
+        },
+        "url": "https://semantics21.com/",
+        "status": "active"
     },
     {
         "tool_name": "Amped FIVE ",
         "vendor": "Amped Software",
-        "capability_tags": ["video_enhancement", "cctv_forensics", "media_forensics"],
+        "capability_tags": [
+            "video_enhancement",
+            "cctv_forensics",
+            "media_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible; the industry standard for forensic video enhancement.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -641,13 +936,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive vendor training.",
-        "additional_metadata": {"feature": "Automatically generates a scientific report of all applied filters for court"},
-        "url": "https://ampedsoftware.com/five"
+        "additional_metadata": {
+            "feature": "Automatically generates a scientific report of all applied filters for court"
+        },
+        "url": "https://ampedsoftware.com/five",
+        "status": "active"
     },
     {
         "tool_name": "FotoForensics ",
         "vendor": "Hacker Factor",
-        "capability_tags": ["image_authentication", "error_level_analysis"],
+        "capability_tags": [
+            "image_authentication",
+            "error_level_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Investigative lead; ELA requires expert interpretation.",
         "cost_and_licensing": "Free",
@@ -656,13 +957,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Online tutorials.",
-        "additional_metadata": {"core_tech": "Error Level Analysis (ELA)"},
-        "url": "https://fotoforensics.com/"
+        "additional_metadata": {
+            "core_tech": "Error Level Analysis (ELA)"
+        },
+        "url": "https://fotoforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Microsoft PhotoDNA ",
         "vendor": "Microsoft",
-        "capability_tags": ["csam_hash_matching", "perceptual_hashing"],
+        "capability_tags": [
+            "csam_hash_matching",
+            "perceptual_hashing"
+        ],
         "jurisdictional_legality": "Fully legal for authorized use.",
         "evidentiary_admissibility": "Industry standard for automated CSAM detection by service providers.",
         "cost_and_licensing": "Free for qualifying organizations",
@@ -671,13 +978,19 @@
         "platform_and_integration": "Cloud API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Microsoft support.",
-        "additional_metadata": {"mechanism": "Matches images against a database of known CSAM hashes even if altered"},
-        "url": "https://www.microsoft.com/en-us/photodna"
+        "additional_metadata": {
+            "mechanism": "Matches images against a database of known CSAM hashes even if altered"
+        },
+        "url": "https://www.microsoft.com/en-us/photodna",
+        "status": "active"
     },
     {
         "tool_name": "Reality Defender ",
         "vendor": "Reality Defender",
-        "capability_tags": ["deepfake_detection", "ai_audio_detection"],
+        "capability_tags": [
+            "deepfake_detection",
+            "ai_audio_detection"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Investigative tool.",
         "cost_and_licensing": "Enterprise",
@@ -686,13 +999,19 @@
         "platform_and_integration": "Web / API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"focus": "Multi-modal (audio, video, image) deepfake detection"},
-        "url": "https://realitydefender.com/"
+        "additional_metadata": {
+            "focus": "Multi-modal (audio, video, image) deepfake detection"
+        },
+        "url": "https://realitydefender.com/",
+        "status": "active"
     },
     {
         "tool_name": "Deep Media DeepID ",
         "vendor": "Deep Media",
-        "capability_tags": ["deepfake_detection", "synthetic_media_analysis"],
+        "capability_tags": [
+            "deepfake_detection",
+            "synthetic_media_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Investigative tool.",
         "cost_and_licensing": "Enterprise",
@@ -701,13 +1020,20 @@
         "platform_and_integration": "API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"clientele": "Funded in part by DoD contracts"},
-        "url": "https://deepmedia.ai/"
+        "additional_metadata": {
+            "clientele": "Funded in part by DoD contracts"
+        },
+        "url": "https://deepmedia.ai/",
+        "status": "active"
     },
     {
         "tool_name": "Chainalysis Reactor ",
         "vendor": "Chainalysis",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics", "link_analysis"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics",
+            "link_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible; frequently used by federal agencies in major crypto busts.",
         "cost_and_licensing": "Enterprise / Subscription (Very high cost)",
@@ -716,13 +1042,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "CRC certification and extensive training.",
-        "additional_metadata": {"status": "Market leader in cryptocurrency tracing"},
-        "url": "https://www.chainalysis.com/"
+        "additional_metadata": {
+            "status": "Market leader in cryptocurrency tracing"
+        },
+        "url": "https://www.chainalysis.com/",
+        "status": "active"
     },
     {
         "tool_name": "TRM Labs ",
         "vendor": "TRM Labs",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics", "risk_management"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics",
+            "risk_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible and highly regarded.",
         "cost_and_licensing": "Enterprise",
@@ -731,13 +1064,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "TRM certification and training.",
-        "additional_metadata": {"focus": "Cross-chain tracing and DeFi compliance"},
-        "url": "https://www.trmlabs.com/"
+        "additional_metadata": {
+            "focus": "Cross-chain tracing and DeFi compliance"
+        },
+        "url": "https://www.trmlabs.com/",
+        "status": "active"
     },
     {
         "tool_name": "Elliptic Investigator ",
         "vendor": "Elliptic",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise",
@@ -746,13 +1085,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"feature": "Strong focus on wallet screening and risk scoring"},
-        "url": "https://www.elliptic.co/"
+        "additional_metadata": {
+            "feature": "Strong focus on wallet screening and risk scoring"
+        },
+        "url": "https://www.elliptic.co/",
+        "status": "active"
     },
     {
         "tool_name": "Merkle Science ",
         "vendor": "Merkle Science",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise",
@@ -761,13 +1106,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"feature": "Behavioral rule engine for detecting crypto crime"},
-        "url": "https://merklescience.com/"
+        "additional_metadata": {
+            "feature": "Behavioral rule engine for detecting crypto crime"
+        },
+        "url": "https://merklescience.com/",
+        "status": "active"
     },
     {
         "tool_name": "CipherTrace ",
         "vendor": "Mastercard",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics", "aml_compliance"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics",
+            "aml_compliance"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise",
@@ -776,13 +1128,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training (CTCE).",
-        "additional_metadata": {"specialty": "Monero tracing capabilities (though debated in public spheres)"},
-        "url": "https://ciphertrace.com/"
+        "additional_metadata": {
+            "specialty": "Monero tracing capabilities (though debated in public spheres)"
+        },
+        "url": "https://ciphertrace.com/",
+        "status": "active"
     },
     {
         "tool_name": "Crystal Blockchain ",
         "vendor": "Bitfury Group",
-        "capability_tags": ["blockchain_tracing", "crypto_forensics", "data_visualization"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "crypto_forensics",
+            "data_visualization"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise",
@@ -791,13 +1150,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"feature": "Excellent visual graphing interface for tracing funds"},
-        "url": "https://crystalblockchain.com/"
+        "additional_metadata": {
+            "feature": "Excellent visual graphing interface for tracing funds"
+        },
+        "url": "https://crystalblockchain.com/",
+        "status": "active"
     },
     {
         "tool_name": "Breadcrumbs.io ",
         "vendor": "Breadcrumbs",
-        "capability_tags": ["blockchain_tracing", "open_source_intelligence"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "open_source_intelligence"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Investigative tool.",
         "cost_and_licensing": "Freemium",
@@ -806,13 +1171,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Community and vendor guides.",
-        "additional_metadata": {"focus": "Community-driven crypto tracking platform"},
-        "url": "https://breadcrumbs.io/"
+        "additional_metadata": {
+            "focus": "Community-driven crypto tracking platform"
+        },
+        "url": "https://breadcrumbs.io/",
+        "status": "active"
     },
     {
         "tool_name": "OXT (Open Source Bitcoin Explorer) ",
         "vendor": "OXT",
-        "capability_tags": ["blockchain_tracing", "bitcoin_analysis"],
+        "capability_tags": [
+            "blockchain_tracing",
+            "bitcoin_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Investigative tool.",
         "cost_and_licensing": "Free",
@@ -821,13 +1192,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Community documentation.",
-        "additional_metadata": {"feature": "In-depth block explorer focused purely on Bitcoin privacy and tracking"},
-        "url": "https://oxt.me/"
+        "additional_metadata": {
+            "feature": "In-depth block explorer focused purely on Bitcoin privacy and tracking"
+        },
+        "url": "https://oxt.me/",
+        "status": "active"
     },
     {
         "tool_name": "Cellebrite Inseyets ",
         "vendor": "Cellebrite",
-        "capability_tags": ["mobile_extraction", "digital_forensics", "automation"],
+        "capability_tags": [
+            "mobile_extraction",
+            "digital_forensics",
+            "automation"
+        ],
         "jurisdictional_legality": "Legal with restrictions.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise",
@@ -836,13 +1214,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official training.",
-        "additional_metadata": {"note": "Next-gen platform consolidating UFED and Physical Analyzer capabilities"},
-        "url": "https://cellebrite.com/"
+        "additional_metadata": {
+            "note": "Next-gen platform consolidating UFED and Physical Analyzer capabilities"
+        },
+        "url": "https://cellebrite.com/",
+        "status": "active"
     },
     {
         "tool_name": "Magnet Outrider ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["triage", "csam_scanning", "rapid_reconnaissance"],
+        "capability_tags": [
+            "triage",
+            "csam_scanning",
+            "rapid_reconnaissance"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible for establishing probable cause during search warrants.",
         "cost_and_licensing": "Enterprise",
@@ -851,13 +1236,19 @@
         "platform_and_integration": "Windows / USB portable.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"use_case": "Ultra-fast triage tool used on-scene to find CSAM or specific keywords"},
-        "url": "https://www.magnetforensics.com/"
+        "additional_metadata": {
+            "use_case": "Ultra-fast triage tool used on-scene to find CSAM or specific keywords"
+        },
+        "url": "https://www.magnetforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Magnet AXIOM Cloud ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["cloud_forensics", "token_extraction"],
+        "capability_tags": [
+            "cloud_forensics",
+            "token_extraction"
+        ],
         "jurisdictional_legality": "Requires proper legal authority (warrant/consent).",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise (Add-on to AXIOM)",
@@ -866,13 +1257,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"feature": "Extracts data from Google, Apple, Microsoft clouds using user credentials or tokens"},
-        "url": "https://www.magnetforensics.com/products/magnet-axiom/"
+        "additional_metadata": {
+            "feature": "Extracts data from Google, Apple, Microsoft clouds using user credentials or tokens"
+        },
+        "url": "https://www.magnetforensics.com/products/magnet-axiom/",
+        "status": "active"
     },
     {
         "tool_name": "Oxygen Forensics Cloud ",
         "vendor": "Oxygen Forensics",
-        "capability_tags": ["cloud_forensics", "token_extraction"],
+        "capability_tags": [
+            "cloud_forensics",
+            "token_extraction"
+        ],
         "jurisdictional_legality": "Requires proper legal authority.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Enterprise (Included in Detective)",
@@ -881,13 +1278,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"support": "Supports over 100 unique cloud services"},
-        "url": "https://www.oxygenforensics.com/"
+        "additional_metadata": {
+            "support": "Supports over 100 unique cloud services"
+        },
+        "url": "https://www.oxygenforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "Wireshark ",
         "vendor": "Wireshark Foundation",
-        "capability_tags": ["network_forensics", "packet_capture"],
+        "capability_tags": [
+            "network_forensics",
+            "packet_capture"
+        ],
         "jurisdictional_legality": "Fully legal (interception requires authorization).",
         "evidentiary_admissibility": "Industry standard for network packet evidence.",
         "cost_and_licensing": "Free / Open-source",
@@ -896,13 +1299,20 @@
         "platform_and_integration": "Windows, Linux, macOS.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive community wiki and official documentation.",
-        "additional_metadata": {"feature": "Deep inspection of hundreds of protocols"},
-        "url": "https://www.wireshark.org/"
+        "additional_metadata": {
+            "feature": "Deep inspection of hundreds of protocols"
+        },
+        "url": "https://www.wireshark.org/",
+        "status": "active"
     },
     {
         "tool_name": "NetworkMiner ",
         "vendor": "Netresec",
-        "capability_tags": ["network_forensics", "pcap_analysis", "artifact_extraction"],
+        "capability_tags": [
+            "network_forensics",
+            "pcap_analysis",
+            "artifact_extraction"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Freemium",
@@ -911,13 +1321,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor tutorials.",
-        "additional_metadata": {"use_case": "Extracts files, images, and credentials passively from PCAP files"},
-        "url": "https://www.netresec.com/?page=NetworkMiner"
+        "additional_metadata": {
+            "use_case": "Extracts files, images, and credentials passively from PCAP files"
+        },
+        "url": "https://www.netresec.com/?page=NetworkMiner",
+        "status": "active"
     },
     {
         "tool_name": "ICCAM ",
         "vendor": "INTERPOL",
-        "capability_tags": ["csam_database", "hash_matching", "international_collaboration"],
+        "capability_tags": [
+            "csam_database",
+            "hash_matching",
+            "international_collaboration"
+        ],
         "jurisdictional_legality": "Legal for authorized LE agencies.",
         "evidentiary_admissibility": "Crucial for global identification and linking of CSAM series.",
         "cost_and_licensing": "Free for member countries",
@@ -926,13 +1343,19 @@
         "platform_and_integration": "Secure global database.",
         "last_verified": "2024-05",
         "documentation_and_support": "Internal INTERPOL training.",
-        "additional_metadata": {"acronym": "International Child Sexual Exploitation Image Database"},
-        "url": "https://www.interpol.int/"
+        "additional_metadata": {
+            "acronym": "International Child Sexual Exploitation Image Database"
+        },
+        "url": "https://www.interpol.int/",
+        "status": "active"
     },
     {
         "tool_name": "ReportBox ",
         "vendor": "INHOPE",
-        "capability_tags": ["csam_reporting", "hotline_management"],
+        "capability_tags": [
+            "csam_reporting",
+            "hotline_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Case management / reporting tool.",
         "cost_and_licensing": "Provided to INHOPE members",
@@ -941,13 +1364,19 @@
         "platform_and_integration": "Web-based platform.",
         "last_verified": "2024-05",
         "documentation_and_support": "INHOPE internal support.",
-        "additional_metadata": {"function": "Secure platform for hotlines to process and share CSAM reports"},
-        "url": "https://www.inhope.org/"
+        "additional_metadata": {
+            "function": "Secure platform for hotlines to process and share CSAM reports"
+        },
+        "url": "https://www.inhope.org/",
+        "status": "active"
     },
     {
         "tool_name": "ShareazaLE ",
         "vendor": "Open Source Community / LE Mod",
-        "capability_tags": ["p2p_monitoring", "csam_investigation"],
+        "capability_tags": [
+            "p2p_monitoring",
+            "csam_investigation"
+        ],
         "jurisdictional_legality": "Legal for LE conducting undercover/monitoring ops.",
         "evidentiary_admissibility": "Admissible for establishing probable cause for P2P network sharing.",
         "cost_and_licensing": "Free",
@@ -956,13 +1385,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Internal LE documentation.",
-        "additional_metadata": {"history": "Modified P2P client used to track illicit sharing on networks like eDonkey/Gnutella"},
-        "url": "https://github.com/"
+        "additional_metadata": {
+            "history": "Modified P2P client used to track illicit sharing on networks like eDonkey/Gnutella"
+        },
+        "url": "https://github.com/",
+        "status": "active"
     },
     {
         "tool_name": "RoundUp ",
         "vendor": "Law Enforcement Proprietary",
-        "capability_tags": ["p2p_monitoring", "csam_investigation"],
+        "capability_tags": [
+            "p2p_monitoring",
+            "csam_investigation"
+        ],
         "jurisdictional_legality": "Legal for authorized LE.",
         "evidentiary_admissibility": "Routinely used to generate warrants based on IP sharing CSAM.",
         "cost_and_licensing": "Proprietary to LE",
@@ -971,13 +1406,19 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Internal LE training (ICAC).",
-        "additional_metadata": {"function": "Automated monitoring of P2P networks for known CSAM hashes"},
-        "url": ""
+        "additional_metadata": {
+            "function": "Automated monitoring of P2P networks for known CSAM hashes"
+        },
+        "url": "",
+        "status": "active"
     },
     {
         "tool_name": "Torrential Downpour ",
         "vendor": "Law Enforcement / ICAC",
-        "capability_tags": ["bittorrent_monitoring", "ip_capture"],
+        "capability_tags": [
+            "bittorrent_monitoring",
+            "ip_capture"
+        ],
         "jurisdictional_legality": "Legal for authorized LE.",
         "evidentiary_admissibility": "Admissible for probable cause.",
         "cost_and_licensing": "Proprietary",
@@ -986,13 +1427,19 @@
         "platform_and_integration": "Windows / Linux.",
         "last_verified": "2024-05",
         "documentation_and_support": "ICAC training.",
-        "additional_metadata": {"function": "Specifically targets and logs IPs sharing illicit files in BitTorrent swarms"},
-        "url": ""
+        "additional_metadata": {
+            "function": "Specifically targets and logs IPs sharing illicit files in BitTorrent swarms"
+        },
+        "url": "",
+        "status": "deprecated"
     },
     {
         "tool_name": "SaferHash ",
         "vendor": "Project Arachnid / C3P",
-        "capability_tags": ["csam_hash_matching", "api_integration"],
+        "capability_tags": [
+            "csam_hash_matching",
+            "api_integration"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Triage and moderation tool.",
         "cost_and_licensing": "Free to partners",
@@ -1001,13 +1448,19 @@
         "platform_and_integration": "API.",
         "last_verified": "2024-05",
         "documentation_and_support": "Partner API docs.",
-        "additional_metadata": {"focus": "Privacy-preserving hash matching mechanism"},
-        "url": "https://protectchildren.ca/en/"
+        "additional_metadata": {
+            "focus": "Privacy-preserving hash matching mechanism"
+        },
+        "url": "https://protectchildren.ca/en/",
+        "status": "active"
     },
     {
         "tool_name": "PDQ (Perceptual Hash) ",
         "vendor": "Meta",
-        "capability_tags": ["perceptual_hashing", "image_matching"],
+        "capability_tags": [
+            "perceptual_hashing",
+            "image_matching"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible as a matching algorithm for scale.",
         "cost_and_licensing": "Free / Open-source",
@@ -1016,13 +1469,20 @@
         "platform_and_integration": "C++ / Python implementation.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"open_source": "Open-sourced by Meta to help combat CSAM and extremism across the web"},
-        "url": "https://github.com/facebook/ThreatExchange/tree/master/hashing"
+        "additional_metadata": {
+            "open_source": "Open-sourced by Meta to help combat CSAM and extremism across the web"
+        },
+        "url": "https://github.com/facebook/ThreatExchange/tree/master/hashing",
+        "status": "active"
     },
     {
         "tool_name": "Kaseware ",
         "vendor": "Kaseware",
-        "capability_tags": ["case_management", "osint_integration", "dispatch"],
+        "capability_tags": [
+            "case_management",
+            "osint_integration",
+            "dispatch"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Maintains chain of custody and audit trails for case files.",
         "cost_and_licensing": "Enterprise / Subscription",
@@ -1031,13 +1491,19 @@
         "platform_and_integration": "Web-based. Integrates with various OSINT data brokers.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support and training.",
-        "additional_metadata": {"founders": "Built by former FBI agents who designed the FBI's Sentinel system"},
-        "url": "https://www.kaseware.com/"
+        "additional_metadata": {
+            "founders": "Built by former FBI agents who designed the FBI's Sentinel system"
+        },
+        "url": "https://www.kaseware.com/",
+        "status": "active"
     },
     {
         "tool_name": "Omnigo Case Management ",
         "vendor": "Omnigo Software",
-        "capability_tags": ["case_management", "records_management"],
+        "capability_tags": [
+            "case_management",
+            "records_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Standard RMS.",
         "cost_and_licensing": "Enterprise",
@@ -1046,13 +1512,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"focus": "Incident reporting and CAD (Computer Aided Dispatch) integration"},
-        "url": "https://www.omnigo.com/"
+        "additional_metadata": {
+            "focus": "Incident reporting and CAD (Computer Aided Dispatch) integration"
+        },
+        "url": "https://www.omnigo.com/",
+        "status": "active"
     },
     {
         "tool_name": "Clue Software ",
         "vendor": "Clue Computing Company",
-        "capability_tags": ["case_management", "intelligence_management"],
+        "capability_tags": [
+            "case_management",
+            "intelligence_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Compliant with intelligence handling standards (e.g., NIM in the UK).",
         "cost_and_licensing": "Enterprise",
@@ -1061,13 +1533,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"market": "Highly popular in the UK and European law enforcement sectors"},
-        "url": "https://www.cluesoftware.com/"
+        "additional_metadata": {
+            "market": "Highly popular in the UK and European law enforcement sectors"
+        },
+        "url": "https://www.cluesoftware.com/",
+        "status": "active"
     },
     {
         "tool_name": "CaseBuilder ",
         "vendor": "Magnet Forensics",
-        "capability_tags": ["case_management", "digital_evidence_management"],
+        "capability_tags": [
+            "case_management",
+            "digital_evidence_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Maintains digital chain of custody.",
         "cost_and_licensing": "Enterprise",
@@ -1076,13 +1554,20 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor support.",
-        "additional_metadata": {"focus": "Collaborative platform for investigators to review digital evidence without technical tools"},
-        "url": "https://www.magnetforensics.com/"
+        "additional_metadata": {
+            "focus": "Collaborative platform for investigators to review digital evidence without technical tools"
+        },
+        "url": "https://www.magnetforensics.com/",
+        "status": "active"
     },
     {
         "tool_name": "TheHive ",
         "vendor": "StrangeBee",
-        "capability_tags": ["incident_response", "case_management", "soc_platform"],
+        "capability_tags": [
+            "incident_response",
+            "case_management",
+            "soc_platform"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Standard for IR tracking.",
         "cost_and_licensing": "Free / Open-source (Enterprise options available)",
@@ -1091,13 +1576,20 @@
         "platform_and_integration": "Web-based. Integrates heavily with Cortex and MISP.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub and community documentation.",
-        "additional_metadata": {"use_case": "Primarily used by Security Operations Centers (SOCs) for cyber incidents"},
-        "url": "https://thehive-project.org/"
+        "additional_metadata": {
+            "use_case": "Primarily used by Security Operations Centers (SOCs) for cyber incidents"
+        },
+        "url": "https://thehive-project.org/",
+        "status": "active"
     },
     {
         "tool_name": "DFIR-IRIS ",
         "vendor": "Open Source Community",
-        "capability_tags": ["incident_response", "case_management", "digital_forensics"],
+        "capability_tags": [
+            "incident_response",
+            "case_management",
+            "digital_forensics"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Standard for IR tracking.",
         "cost_and_licensing": "Free / Open-source",
@@ -1106,13 +1598,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"feature": "Collaborative platform tailored specifically for DFIR teams"},
-        "url": "https://dfir-iris.org/"
+        "additional_metadata": {
+            "feature": "Collaborative platform tailored specifically for DFIR teams"
+        },
+        "url": "https://dfir-iris.org/",
+        "status": "active"
     },
     {
         "tool_name": "Altia CLIO ",
         "vendor": "Altia",
-        "capability_tags": ["case_management", "major_incident_room"],
+        "capability_tags": [
+            "case_management",
+            "major_incident_room"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Strict compliance with UK/international disclosure rules.",
         "cost_and_licensing": "Enterprise",
@@ -1121,13 +1619,19 @@
         "platform_and_integration": "Web-based.",
         "last_verified": "2024-05",
         "documentation_and_support": "Vendor training.",
-        "additional_metadata": {"heritage": "Standard software for managing complex, major crimes (murder, CSAM rings) in the UK"},
-        "url": "https://www.altia.com/"
+        "additional_metadata": {
+            "heritage": "Standard software for managing complex, major crimes (murder, CSAM rings) in the UK"
+        },
+        "url": "https://www.altia.com/",
+        "status": "active"
     },
     {
         "tool_name": "CRIMR ",
         "vendor": "Not specified (Various LE Proprietary DBs exist with this acronym)",
-        "capability_tags": ["case_management", "records_management"],
+        "capability_tags": [
+            "case_management",
+            "records_management"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Standard police database.",
         "cost_and_licensing": "Enterprise / Proprietary",
@@ -1136,13 +1640,19 @@
         "platform_and_integration": "Various.",
         "last_verified": "2024-05",
         "documentation_and_support": "Internal LE training.",
-        "additional_metadata": {"context": "Often refers to regional Criminal Record Information Management systems"},
-        "url": ""
+        "additional_metadata": {
+            "context": "Often refers to regional Criminal Record Information Management systems"
+        },
+        "url": "",
+        "status": "active"
     },
     {
         "tool_name": "DumpZilla ",
         "vendor": "Open Source Community",
-        "capability_tags": ["browser_forensics", "data_extraction"],
+        "capability_tags": [
+            "browser_forensics",
+            "data_extraction"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible forensic tool.",
         "cost_and_licensing": "Free / Open-source",
@@ -1151,13 +1661,20 @@
         "platform_and_integration": "Python CLI.",
         "last_verified": "2024-05",
         "documentation_and_support": "GitHub documentation.",
-        "additional_metadata": {"specialty": "Extracts forensic artifacts specifically from Mozilla Firefox browsers"},
-        "url": "https://github.com/Busindre/dumpzilla"
+        "additional_metadata": {
+            "specialty": "Extracts forensic artifacts specifically from Mozilla Firefox browsers"
+        },
+        "url": "https://github.com/Busindre/dumpzilla",
+        "status": "unverified"
     },
     {
         "tool_name": "COFEE ",
         "vendor": "Microsoft",
-        "capability_tags": ["live_response", "triage", "artifact_extraction"],
+        "capability_tags": [
+            "live_response",
+            "triage",
+            "artifact_extraction"
+        ],
         "jurisdictional_legality": "Legal for authorized LE.",
         "evidentiary_admissibility": "Accepted for live triage.",
         "cost_and_licensing": "Free to LE",
@@ -1166,13 +1683,20 @@
         "platform_and_integration": "Windows USB.",
         "last_verified": "2024-05",
         "documentation_and_support": "Internal LE documentation.",
-        "additional_metadata": {"acronym": "Computer Online Forensic Evidence Extractor"},
-        "url": "https://www.microsoft.com/"
+        "additional_metadata": {
+            "acronym": "Computer Online Forensic Evidence Extractor"
+        },
+        "url": "https://www.microsoft.com/",
+        "status": "active"
     },
     {
         "tool_name": "Digital Forensics Framework (DFF) ",
         "vendor": "ArxSys",
-        "capability_tags": ["digital_forensics", "disk_analysis", "framework"],
+        "capability_tags": [
+            "digital_forensics",
+            "disk_analysis",
+            "framework"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible.",
         "cost_and_licensing": "Free / Open-source (Abandoned)",
@@ -1181,13 +1705,19 @@
         "platform_and_integration": "Linux, Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Archived GitHub.",
-        "additional_metadata": {"status": "Largely unmaintained, but historically significant as an open-source API framework"},
-        "url": "https://github.com/arxsys/dff"
+        "additional_metadata": {
+            "status": "Largely unmaintained, but historically significant as an open-source API framework"
+        },
+        "url": "https://github.com/arxsys/dff",
+        "status": "active"
     },
     {
         "tool_name": "HashKeeper ",
         "vendor": "NDIC / Open Source",
-        "capability_tags": ["hash_database", "triage"],
+        "capability_tags": [
+            "hash_database",
+            "triage"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Admissible for excluding known-good files.",
         "cost_and_licensing": "Free",
@@ -1196,13 +1726,20 @@
         "platform_and_integration": "Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Legacy documentation.",
-        "additional_metadata": {"history": "One of the original hash database tools, replaced by modern suites utilizing NSRL databases"},
-        "url": ""
+        "additional_metadata": {
+            "history": "One of the original hash database tools, replaced by modern suites utilizing NSRL databases"
+        },
+        "url": "",
+        "status": "active"
     },
     {
         "tool_name": "YARA ",
         "vendor": "VirusTotal / Open Source",
-        "capability_tags": ["malware_analysis", "pattern_matching", "ioc_scanning"],
+        "capability_tags": [
+            "malware_analysis",
+            "pattern_matching",
+            "ioc_scanning"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Industry standard for malware identification and categorization.",
         "cost_and_licensing": "Free / Open-source",
@@ -1211,13 +1748,20 @@
         "platform_and_integration": "Linux, Windows, macOS.",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive official documentation.",
-        "additional_metadata": {"description": "The 'pattern matching swiss knife' for malware researchers"},
-        "url": "https://virustotal.github.io/yara/"
+        "additional_metadata": {
+            "description": "The 'pattern matching swiss knife' for malware researchers"
+        },
+        "url": "https://virustotal.github.io/yara/",
+        "status": "active"
     },
     {
         "tool_name": "Snort ",
         "vendor": "Cisco",
-        "capability_tags": ["network_intrusion_detection", "packet_sniffing", "pcap_analysis"],
+        "capability_tags": [
+            "network_intrusion_detection",
+            "packet_sniffing",
+            "pcap_analysis"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Logs are admissible as business records or forensic network evidence.",
         "cost_and_licensing": "Free / Open-source (Commercial rulesets available)",
@@ -1226,13 +1770,19 @@
         "platform_and_integration": "Linux, Windows.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official documentation and community rulesets.",
-        "additional_metadata": {"function": "Real-time traffic analysis and packet logging on IP networks"},
-        "url": "https://www.snort.org/"
+        "additional_metadata": {
+            "function": "Real-time traffic analysis and packet logging on IP networks"
+        },
+        "url": "https://www.snort.org/",
+        "status": "active"
     },
     {
         "tool_name": "Nagios ",
         "vendor": "Nagios Enterprises",
-        "capability_tags": ["network_monitoring", "infrastructure_monitoring"],
+        "capability_tags": [
+            "network_monitoring",
+            "infrastructure_monitoring"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Logs admissible as business records to show uptime/activity.",
         "cost_and_licensing": "Freemium / Enterprise",
@@ -1241,13 +1791,20 @@
         "platform_and_integration": "Linux.",
         "last_verified": "2024-05",
         "documentation_and_support": "Official documentation.",
-        "additional_metadata": {"use_case": "IT monitoring, often used tangentially to show when a server was active during an investigation"},
-        "url": "https://www.nagios.org/"
+        "additional_metadata": {
+            "use_case": "IT monitoring, often used tangentially to show when a server was active during an investigation"
+        },
+        "url": "https://www.nagios.org/",
+        "status": "active"
     },
     {
         "tool_name": "Velociraptor ",
         "vendor": "Rapid7",
-        "capability_tags": ["endpoint_visibility", "digital_forensics", "incident_response"],
+        "capability_tags": [
+            "endpoint_visibility",
+            "digital_forensics",
+            "incident_response"
+        ],
         "jurisdictional_legality": "Fully legal globally.",
         "evidentiary_admissibility": "Highly admissible for enterprise incident response artifacts.",
         "cost_and_licensing": "Free / Open-source",
@@ -1256,7 +1813,10 @@
         "platform_and_integration": "Windows, Linux, macOS. VQL (Velociraptor Query Language).",
         "last_verified": "2024-05",
         "documentation_and_support": "Extensive official documentation and Rapid7 support.",
-        "additional_metadata": {"feature": "Allows executing surgical, distributed forensic queries across thousands of endpoints simultaneously"},
-        "url": "https://docs.velociraptor.app/"
+        "additional_metadata": {
+            "feature": "Allows executing surgical, distributed forensic queries across thousands of endpoints simultaneously"
+        },
+        "url": "https://docs.velociraptor.app/",
+        "status": "active"
     }
 ]

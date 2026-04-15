@@ -49,6 +49,14 @@ st.markdown(f"# {name}")
 if vendor:
     st.markdown(f"*{vendor}*")
 
+# ── Deprecation / Change Warning ─────────────────────────────────────────────
+
+_tool_status = (tool.get("status") or "active").lower()
+if _tool_status == "deprecated":
+    st.error("⚠️ This tool has been deprecated or is no longer maintained. Verify availability before use.")
+elif _tool_status == "unverified":
+    st.warning("⚠️ This tool's information may be outdated. Last verified: " + tool.get("last_verified", "unknown"))
+
 st.divider()
 
 # ── Score & Why Recommended ──────────────────────────────────────────────────
