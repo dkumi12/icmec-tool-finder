@@ -1,79 +1,112 @@
-# Investiqo
+# Investiqo 🔍
 
-**Build the right stack without the guesswork.**
+**Build the right investigative stack without the guesswork.**
 
-Investiqo is a decision-support tool that helps child protection investigators find the right digital investigation tools for their case fast, without technical expertise required.
+Investiqo is a deterministic tool recommendation engine designed to help child protection investigators, law enforcement, and researchers find the most relevant forensic and OSINT tools for their specific case — fast, without technical expertise required.
 
-Built for the **ICMEC Ishango Hackathon 2026** (April 9–16, 2026).
+Developed for the **ICMEC Ishango Hackathon 2026** (April 9–16, 2026).
 
-Live app: [investiqo.streamlit.app](https://investiqo.streamlit.app)
-
----
-
-## The Problem
-
-When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that; describe your case, get ranked recommendations with reasons in under 10 seconds.
+🌐 Live app: [investiqo.streamlit.app](https://investiqo.streamlit.app)
 
 ---
 
-## How It Works
+## 🚀 The Problem
 
-The investigator fills out a plain-language form:
+When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that — describe your case, get ranked recommendations with explanations in under 10 seconds.
 
-- **Investigation type** — CSAM detection, online grooming, crypto tracing, trafficking, etc.
-- **Available evidence** — image, mobile device, chat logs, crypto wallet, username, etc.
-- **Budget** — free only, free + freemium, or any
-- **Technical skill level** — beginner, intermediate, advanced
-- **Urgency** — immediate, days, or weeks
-- **Law enforcement status** — checkbox
+---
 
-A 5-signal scoring engine runs against a curated database of 84 tools and returns the top results ranked by relevance.
+## 👥 The Team
 
-### Scoring Signals
+- **David Osei Kumi**
+- **George Mwangi**
+- **Thierry Donambi**
 
-| Signal | Points |
+Built for the ICMEC Ishango Hackathon 2026.
+
+---
+
+## 📐 Scoring Logic (0–100%)
+
+Investiqo uses a **transparent, additive scoring engine** — no black-box AI. Each tool is scored against your case inputs across five signals, then normalised to a 0–100% match score. Every recommendation includes a plain-language explanation of why it was matched.
+
+| Signal | How It Works |
 |---|---|
-| Investigation type match | +3 per tag hit, cap +9 |
-| Budget fit | +2 / −2 penalty |
-| Technical skill match | +2 |
-| Evidence type match | +1 per hit, cap +3 |
-| Urgency bonus (free + public tools) | +1 |
-| Access gate (LE-only for non-LE users) | −5 |
+| **Investigation type match** | +3 per matching capability tag, capped at +9 |
+| **Budget fit** | +2 if within budget, −2 if outside |
+| **Technical skill match** | +2 if tool is appropriate for your level |
+| **Evidence type match** | +1 per matching evidence type, capped at +3 |
+| **Urgency bonus** | +1 for free, publicly available tools when urgency is immediate |
+| **Access gate** | −5 if tool is LE-restricted and user is not law enforcement |
 
-**Score range:** −7 to 17 points. Every recommendation includes a plain-language explanation of why it was matched.
+Raw score range: −7 to +17 points → normalised to **0–100%**.
+
+- 🟢 **≥ 70%** — strong match
+- 🟡 **40–69%** — partial match
+- 🔴 **< 40%** — weak match
 
 ---
 
-## Features
+## 🛠️ Key Features
 
-- Ranked tool recommendations with match reasons
+- Ranked recommendations with plain-language match reasons
+- Score displayed as a match percentage (0–100%)
 - Show More — extend results beyond top 5
 - Tool detail page — cost, skill level, platform, legal admissibility, coding requirements, languages
-- Contact & licensing information per tool
-- Community star ratings (saved to local files, no database/login)
+- Community star ratings — no database or login required
+- Thumbs up/down recommendation feedback
 - Tool deprecation and change warnings
 - Suggest a Tool — submit tools not in the database
+- Optional filters — coding requirement, interface language
 - Scoring transparency — expandable explanation on results page
-- No AI at runtime — fully deterministic, auditable
+- No AI at runtime — fully deterministic and auditable
 - No investigator data stored or transmitted
 
 ---
 
-## Stack
+## 📁 Project Structure
 
-- Python 3.13
-- Streamlit 1.38+
-- JSON tool database (84 tools, no backend required)
-- pytest (35 tests)
+```text
+├── app.py                      # Streamlit router — registers all pages
+├── requirements.txt
+├── data/
+│   ├── tools.json              # 84 curated forensic and OSINT tools
+│   ├── tool_enrichment.json    # Extended language and coding metadata (George Mwangi)
+│   ├── ratings.json            # Seed ratings for demo
+│   └── ratings_log.jsonl       # Investigator rating submissions log
+├── pages/
+│   ├── search.py               # Main form + ranked results
+│   ├── detail.py               # Full tool breakdown + community ratings + feedback
+│   └── suggest.py              # Suggest a tool form
+├── scoring/
+│   ├── recommend.py            # Core scoring engine + score_pct() normaliser
+│   ├── tag_maps.py             # Investigation type → capability tag mapping
+│   ├── normalise.py            # Field parsing utilities (pricing, skill, languages)
+│   └── ratings.py              # Community ratings helpers (George Mwangi)
+└── tests/
+    └── test_scoring.py         # 43 unit tests
+```
 
 ---
 
-## Running Locally
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/dkumi12/icmec-tool-finder.git
 cd icmec-tool-finder
+```
+
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### 3. Run the application
+
+```bash
 streamlit run app.py
 ```
 
@@ -81,7 +114,7 @@ Or open in GitHub Codespaces — click **Code → Codespaces → Create codespac
 
 ---
 
-## Running Tests
+## 🧪 Running Tests
 
 ```bash
 python -m pytest tests/ -v
@@ -89,33 +122,4 @@ python -m pytest tests/ -v
 
 ---
 
-## Project Structure
-
-```
-├── app.py                  # Router — registers all pages
-├── requirements.txt
-├── data/
-│   ├── tools.json          # 84 curated tools
-│   ├── ratings.json        # Legacy seed ratings (optional)
-│   └── ratings_log.jsonl   # Investigator rating submissions log
-├── pages/
-│   ├── search.py           # Main form + results
-│   ├── detail.py           # Tool detail page
-│   └── suggest.py          # Suggest a tool form
-├── scoring/
-│   ├── recommend.py        # Scoring engine
-│   ├── tag_maps.py         # Investigation type → capability tag mapping
-│   └── normalise.py        # Field parsing utilities
-└── tests/
-    └── test_scoring.py     # 35 unit tests
-```
-
----
-
-## Team
-
-- **David Osei Kumi**
-- **George Mwangi**
-- **Thierry Donambi**
-
----
+*Built for the ICMEC Ishango Hackathon 2026.*
