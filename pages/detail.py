@@ -3,11 +3,26 @@ Tool Detail Page — ICMEC Tool Finder
 Displays full information for a selected tool with score breakdown.
 """
 
+import json
 import pathlib
 
 import streamlit as st
 from streamlit_feedback import streamlit_feedback
 from scoring.normalise import parse_coding_requirement, parse_languages
+
+# ── Ratings helpers ──────────────────────────────────────────────────────────
+
+_RATINGS_PATH = pathlib.Path(__file__).parent.parent / "data" / "ratings.json"
+
+def _load_ratings():
+    if _RATINGS_PATH.exists():
+        return json.loads(_RATINGS_PATH.read_text(encoding="utf-8"))
+    return {}
+
+def _save_rating(tool_name, stars):
+    data = _load_ratings()
+    data.setdefault(tool_name, []).append(stars)
+    _RATINGS_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
@@ -69,6 +84,40 @@ if score or reasons:
                 st.markdown(f"✓ {reason}")
 
     st.divider()
+
+# ── Rate This Tool (community star ratings) ─────────────────────────────────
+
+st.markdown("### Rate This Tool")
+_all_ratings = _load_ratings()
+_tool_ratings = _all_ratings.get(name, [])
+_rated_key = f"has_rated_{name}"
+
+if _tool_ratings:
+    _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
+    _star_display = "⭐" * round(_avg)
+    rating_left, rating_right = st.columns([2, 3])
+    with rating_left:
+        st.markdown(f"{_star_display} **{_avg} / 5**")
+        st.caption(f"{len(_tool_ratings)} rating(s)")
+    with rating_right:
+        if not st.session_state.get(_rated_key):
+            _user_star = st.feedback("stars", key=f"rating_{name}")
+            if _user_star is not None:
+                _save_rating(name, _user_star + 1)
+                st.session_state[_rated_key] = True
+                st.toast("Rating submitted!", icon="⭐")
+                st.rerun()
+else:
+    st.caption("No ratings yet — be the first.")
+    if not st.session_state.get(_rated_key):
+        _user_star = st.feedback("stars", key=f"rating_{name}")
+        if _user_star is not None:
+            _save_rating(name, _user_star + 1)
+            st.session_state[_rated_key] = True
+            st.toast("Rating submitted!", icon="⭐")
+            st.rerun()
+
+st.divider()
 
 # ── Quick Overview (2-column grid) ───────────────────────────────────────────
 
