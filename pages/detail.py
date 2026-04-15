@@ -3,7 +3,24 @@ Tool Detail Page — ICMEC Tool Finder
 Displays full information for a selected tool with score breakdown.
 """
 
+import json
+import pathlib
+
 import streamlit as st
+
+# ── Ratings helpers ───────────────────────────────────────────────────────────
+
+_RATINGS_PATH = pathlib.Path(__file__).parent.parent / "data" / "ratings.json"
+
+def _load_ratings() -> dict:
+    if _RATINGS_PATH.exists():
+        return json.loads(_RATINGS_PATH.read_text(encoding="utf-8"))
+    return {}
+
+def _save_rating(tool_name: str, stars: int) -> None:
+    data = _load_ratings()
+    data.setdefault(tool_name, []).append(stars)
+    _RATINGS_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
@@ -57,6 +74,35 @@ if score or reasons:
                 st.markdown(f"✓ {reason}")
 
     st.divider()
+
+# ── Community Ratings ────────────────────────────────────────────────────────
+
+st.markdown("### Community Rating")
+_all_ratings = _load_ratings()
+_tool_ratings = _all_ratings.get(name, [])
+
+if _tool_ratings:
+    _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
+    _stars = "⭐" * round(_avg)
+    rating_col, submit_col = st.columns([2, 3])
+    with rating_col:
+        st.markdown(f"{_stars} **{_avg} / 5**")
+        st.caption(f"Rated by {len(_tool_ratings)} user(s)")
+    with submit_col:
+        _user_star = st.feedback("stars", key=f"rating_{name}")
+        if _user_star is not None:
+            _save_rating(name, _user_star + 1)
+            st.success("Rating submitted!")
+            st.rerun()
+else:
+    st.caption("No ratings yet — be the first.")
+    _user_star = st.feedback("stars", key=f"rating_{name}")
+    if _user_star is not None:
+        _save_rating(name, _user_star + 1)
+        st.success("Rating submitted!")
+        st.rerun()
+
+st.divider()
 
 # ── Quick Overview (2-column grid) ───────────────────────────────────────────
 
