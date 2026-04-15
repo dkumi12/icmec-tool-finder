@@ -2,7 +2,7 @@
 
 **Build the right stack without the guesswork.**
 
-Investiqo is a decision-support tool that helps child protection investigators find the right digital investigation tools for their case — fast, without technical expertise required.
+Investiqo is a decision-support tool that helps child protection investigators find the right digital investigation tools for their case fast, without technical expertise required.
 
 Built for the **ICMEC Ishango Hackathon 2026** (April 9–16, 2026).
 
@@ -12,7 +12,7 @@ Live app: [investiqo.streamlit.app](https://investiqo.streamlit.app)
 
 ## The Problem
 
-When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that — describe your case, get ranked recommendations with reasons in under 10 seconds.
+When an investigator needs a tool for a case, they Google it, ask a colleague, or scroll through a long list manually. This takes time they don't have. Investiqo fixes that; describe your case, get ranked recommendations with reasons in under 10 seconds.
 
 ---
 
@@ -119,9 +119,3 @@ python -m pytest tests/ -v
 - **Thierry Donambi**
 
 ---
-
-## Acknowledgements
-
-Built for the ICMEC Ishango Hackathon in response to ICMEC Idea #2.
-
-[International Centre for Missing & Exploited Children](https://www.icmec.org)
