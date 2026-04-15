@@ -53,3 +53,12 @@ col_back, _ = st.columns([1, 4])
 with col_back:
     if st.button("← Back to Search"):
         st.switch_page("pages/search.py")
+        
+
+# ── Developer & Mentor View: Feedback Logs ───────────────────────────────────
+
+if "feedback_logs" in st.session_state and st.session_state.feedback_logs:
+    st.divider()
+    with st.expander("📊 Team View: Tool Recommendation Feedback"):
+        st.markdown("This section is for internal review of the scoring engine's accuracy.")
+        st.table(st.session_state.feedback_logs)

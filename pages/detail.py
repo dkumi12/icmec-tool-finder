@@ -4,6 +4,7 @@ Displays full information for a selected tool with score breakdown.
 """
 
 import streamlit as st
+from streamlit_feedback import streamlit_feedback
 
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
@@ -192,3 +193,61 @@ if meta and isinstance(meta, dict) and meta:
         display_key = key.replace("_", " ").title()
         st.markdown(f"**{display_key}**")
         st.write(value)
+
+# ── Feedback System ──────────────────────────────────────────────────────────
+
+def handle_feedback(response):
+    """Callback to store feedback in session state."""
+    if "feedback_logs" not in st.session_state:
+        st.session_state.feedback_logs = []
+    
+    # Enrich the feedback with tool context for the mentors
+    entry = {
+        "tool": name,
+        "score": response["score"],
+        "comment": response.get("text", "No comment"),
+        "relevance_at_time": score
+    }
+    st.session_state.feedback_logs.append(entry)
+    st.toast(f"Feedback for {name} recorded!", icon="✅")
+
+st.divider()
+st.markdown("### Was this recommendation helpful?")
+st.caption("Your feedback helps George, David, and Thierry improve the scoring engine.")
+
+# Unique key using tool name to avoid widget collisions
+feedback_key = f"fb_{name.replace(' ', '_')}"
+
+streamlit_feedback(
+    feedback_type="thumbs",
+    optional_text_label="How can we improve this recommendation?",
+    on_submit=handle_feedback,
+    key=feedback_key
+)
+
+# ── Display Existing User Feedback ───────────────────────────────────────────
+
+if "feedback_logs" in st.session_state and st.session_state.feedback_logs:
+    # Filter logs to only show feedback for THIS tool
+    current_tool_feedback = [
+        f for f in st.session_state.feedback_logs 
+        if f['tool'] == name
+    ]
+
+    if current_tool_feedback:
+        st.markdown(f"### User Feedback on {name}")
+        
+        for entry in current_tool_feedback:
+            # Create a small "card" for each feedback entry
+            with st.container(border=True):
+                col_icon, col_text = st.columns([1, 10])
+                
+                with col_icon:
+                    icon = "👍" if entry['score'] == "👍" else "👎"
+                    st.markdown(f"## {icon}")
+                
+                with col_text:
+                    st.markdown(f"**Comment:** {entry['comment']}")
+                    st.caption(f"Relevance Score at time of review: {entry['relevance_at_time']}/100")
+    else:
+        st.info(f"No user feedback yet for {name}. Be the first to review it below!")
