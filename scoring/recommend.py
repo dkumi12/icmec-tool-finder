@@ -173,3 +173,8 @@ def recommend_tools(
     )
 
     return scored[:top_n]
+
+
+def score_pct(raw_score: int) -> int:
+    """Normalise raw additive score (−7 to 17) to a 0–100 percentage."""
+    return round(max(0, min(100, (raw_score + 7) / 24 * 100)))

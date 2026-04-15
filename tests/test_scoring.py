@@ -151,7 +151,7 @@ class TestParseLanguages:
 
 class TestTagMaps:
     def test_investigation_types_exist(self):
-        assert len(INVESTIGATION_TAG_MAP) == 15
+        assert len(INVESTIGATION_TAG_MAP) == 14  # Self-Generated CSAM merged into CSAM detection
 
     def test_input_types_exist(self):
         assert len(INPUT_TAG_MAP) == 14

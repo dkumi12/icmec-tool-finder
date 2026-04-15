@@ -11,15 +11,12 @@ INVESTIGATION_TAG_MAP: dict[str, list[str]] = {
     "CSAM detection": [
         "csam_detection", "csam_hash_matching", "csam_scanning",
         "csam_database", "hash_matching", "csam_categorization",
-        "csam_reporting",
+        "csam_reporting", "csam_investigation", "victim_identification",
+        "image_matching", "content_moderation",
     ],
     "AI-Generated CSAM": [
         "ai_classification", "deepfake_detection", "ai_analysis",
         "ai_audio_detection", "synthetic_media_analysis", "csam_detection",
-    ],
-    "Self-Generated CSAM": [
-        "csam_detection", "csam_investigation", "victim_identification",
-        "image_matching", "content_moderation",
     ],
     "online grooming": [
         "social_media_intelligence", "username_enumeration", "osint",
@@ -51,7 +48,7 @@ INVESTIGATION_TAG_MAP: dict[str, list[str]] = {
     ],
     "digital forensics": [
         "digital_forensics", "disk_analysis", "memory_forensics",
-        "mobile_forensics", "artifact_recovery",
+        "mobile_forensics", "artifact_recovery", "disk_imaging",
     ],
     "media authentication": [
         "image_authentication", "tamper_detection", "deepfake_detection",

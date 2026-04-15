@@ -6,6 +6,7 @@ Displays full information for a selected tool with score breakdown.
 import pathlib
 
 import streamlit as st
+from streamlit_feedback import streamlit_feedback
 from scoring.normalise import parse_coding_requirement, parse_languages
 from scoring.ratings import (
     get_investigator_tool_rating,
@@ -57,12 +58,12 @@ if score or reasons:
 
     with score_col:
         st.markdown("##### Relevance Score")
-        if score >= 12:
-            st.success(f"### {score} / 17 pts")
-        elif score >= 6:
-            st.warning(f"### {score} / 17 pts")
+        if score >= 70:
+            st.success(f"### {score}%")
+        elif score >= 40:
+            st.warning(f"### {score}%")
         else:
-            st.error(f"### {score} / 17 pts")
+            st.error(f"### {score}%")
 
     with reason_col:
         st.markdown("##### Why This Tool Was Recommended")
@@ -239,4 +240,45 @@ if meta and isinstance(meta, dict) and meta:
         display_key = key.replace("_", " ").title()
         st.markdown(f"**{display_key}**")
         st.write(value)
+
+# ── Recommendation Feedback (Thierry Donambi) ────────────────────────────────
+
+def handle_feedback(response):
+    """Store thumbs feedback in session state."""
+    if "feedback_logs" not in st.session_state:
+        st.session_state.feedback_logs = []
+    st.session_state.feedback_logs.append({
+        "tool": name,
+        "score": response["score"],
+        "comment": response.get("text", "No comment"),
+        "relevance_at_time": score,
+    })
+    st.toast(f"Feedback for {name} recorded!", icon="✅")
+
+st.divider()
+st.markdown("### Was this recommendation helpful?")
+st.caption("Your feedback helps the Investiqo team improve the scoring engine.")
+
+streamlit_feedback(
+    feedback_type="thumbs",
+    optional_text_label="How can we improve this recommendation?",
+    on_submit=handle_feedback,
+    key=f"fb_{name.replace(' ', '_')}",
+)
+
+# ── Display existing feedback for this tool ───────────────────────────────────
+
+if "feedback_logs" in st.session_state and st.session_state.feedback_logs:
+    tool_feedback = [f for f in st.session_state.feedback_logs if f["tool"] == name]
+    if tool_feedback:
+        st.markdown(f"### User Feedback on {name}")
+        for entry in tool_feedback:
+            with st.container(border=True):
+                col_icon, col_text = st.columns([1, 10])
+                with col_icon:
+                    icon = "👍" if entry["score"] == "👍" else "👎"
+                    st.markdown(f"## {icon}")
+                with col_text:
+                    st.markdown(f"**Comment:** {entry['comment']}")
+                    st.caption(f"Relevance score at time of review: {entry['relevance_at_time']}%")
 

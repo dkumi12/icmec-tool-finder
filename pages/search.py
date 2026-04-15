@@ -8,7 +8,7 @@ import pathlib
 
 import streamlit as st
 
-from scoring.recommend import recommend_tools, UserQuery
+from scoring.recommend import recommend_tools, UserQuery, score_pct
 from scoring.tag_maps import INVESTIGATION_TAG_MAP, INPUT_TAG_MAP
 from scoring.normalise import parse_languages
 from scoring.ratings import get_investigator_tool_rating, get_tool_rating_summary, submit_rating
@@ -61,8 +61,8 @@ with form_col:
             placeholder="Choose evidence types...",
         )
 
-        row1_left, row1_right = st.columns(2)
-        with row1_left:
+        col_budget, col_skill, col_urgency = st.columns(3)
+        with col_budget:
             budget = st.selectbox(
                 "Budget",
                 options=["free", "freemium", "paid"],
@@ -72,7 +72,14 @@ with form_col:
                     "paid": "Any (including paid)",
                 }[x],
             )
-
+        with col_skill:
+            skill_level = st.selectbox(
+                "Your Technical Skill Level",
+                options=["beginner", "intermediate", "advanced"],
+                index=1,
+                format_func=str.capitalize,
+            )
+        with col_urgency:
             urgency = st.selectbox(
                 "Urgency",
                 options=["immediate", "days", "weeks"],
@@ -83,15 +90,7 @@ with form_col:
                 }[x],
             )
 
-        with row1_right:
-            skill_level = st.selectbox(
-                "Your Technical Skill Level",
-                options=["beginner", "intermediate", "advanced"],
-                index=1,
-                format_func=str.capitalize,
-            )
-
-            is_le = st.checkbox("I am Law Enforcement / Government", value=False)
+        is_le = st.checkbox("I am Law Enforcement / Government", value=False)
 
         st.markdown("##### Optional Filters")
         filter_left, filter_right = st.columns(2)
@@ -112,7 +111,7 @@ with form_col:
             languages = st.multiselect(
                 "Preferred Interface Language(s)",
                 options=language_options + ["Any / Not specified"],
-                help="Filters tools by known language support when available in the dataset.",
+                help="Optional — language coverage is partial. Most tools default to English. Enrichment data (George Mwangi) covers a subset of tools.",
                 placeholder="Choose languages (optional)...",
             )
 
@@ -177,17 +176,17 @@ if st.session_state.results:
 
     with st.expander("How are tools scored?"):
         st.markdown("""
-Each tool is scored against your case inputs using these criteria:
+Each tool is scored against your case inputs and the result is shown as a **match percentage (0–100%)**.
 
-- **Investigation type match** — tools whose capabilities align with your selected case type score highest (up to 9 pts)
-- **Budget fit** — tools within your stated budget score higher; tools outside it are penalised (+2 / −2 pts)
-- **Technical skill match** — tools appropriate for your skill level score higher (+2 pts)
-- **Evidence type match** — tools that handle the evidence you have available score higher (up to 3 pts)
-- **Urgency** — free, publicly available tools get a bonus when you need something immediately (+1 pt)
-- **Access restrictions** — tools restricted to law enforcement are penalised for non-LE users (−5 pts)
+- **Investigation type match** — tools whose capabilities align with your selected case type score highest
+- **Budget fit** — tools within your stated budget score higher; tools outside it are penalised
+- **Technical skill match** — tools appropriate for your skill level score higher
+- **Evidence type match** — tools that handle the evidence you have available score higher
+- **Urgency** — free, publicly available tools get a bonus when you need something immediately
+- **Access restrictions** — tools restricted to law enforcement are deprioritised for non-LE users
 - **Optional hard filters** — coding requirement and interface language can remove non-matching tools before ranking
 
-**Score range:** −7 to 17 points. Higher scores mean a stronger match for your case.
+**Score range:** 0–100%. A higher percentage means a stronger match for your specific case.
 """)
 
     for rank, result in enumerate(visible_results, 1):
@@ -209,12 +208,13 @@ Each tool is scored against your case inputs using these criteria:
                 if vendor:
                     st.caption(vendor)
             with top_right:
-                if score >= 12:
-                    st.success(f"**{score} pts**")
-                elif score >= 6:
-                    st.warning(f"**{score} pts**")
+                pct = score_pct(score)
+                if pct >= 70:
+                    st.success(f"**{pct}%**")
+                elif pct >= 40:
+                    st.warning(f"**{pct}%**")
                 else:
-                    st.error(f"**{score} pts**")
+                    st.error(f"**{pct}%**")
 
             # ── Quick info row ───────────────────────────
             c1, c2, c3, c4 = st.columns(4)
@@ -240,7 +240,7 @@ Each tool is scored against your case inputs using these criteria:
                 if st.button("View Details", key=f"detail_{rank}"):
                     st.session_state.selected_tool = t
                     st.session_state.selected_reasons = result.match_reasons
-                    st.session_state.selected_score = score
+                    st.session_state.selected_score = score_pct(score)
                     st.switch_page("pages/detail.py")
             with btn_mid:
                 investigator = st.session_state.investigator_name.strip()
