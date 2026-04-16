@@ -172,9 +172,8 @@ Each tool is scored against your case inputs and displayed as a **match percenta
 | Budget Fit | **+8%** | Small boost if the tool is within your price range. |
 | Skill Match | **+8%** | Small boost if the tool matches your technical comfort level. |
 | Urgency | **+4%** | Bonus points for free, instant-access tools during emergencies. |
-| Access Restriction | **−21% Penalty** | Heavy deduction if the tool is for law enforcement and you lack clearance. |
 
-**Optional hard filters** — coding requirement and interface language remove non-matching tools entirely before scoring.
+**Optional hard filters** — coding requirement and interface language remove non-matching tools entirely before scoring. Restricted and law-enforcement-only tools are excluded from results.
 
 **Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 """)
