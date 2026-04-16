@@ -38,8 +38,6 @@ Investiqo uses a **transparent, additive scoring engine** — no black-box AI. E
 | **Skill Match** | +8% | Small boost if the tool matches your technical comfort level. |
 | **Urgency** | +4% | Bonus points for free, instant-access tools during emergencies. |
 
-Restricted and law-enforcement-only tools are filtered out entirely and do not appear in results.
-
 **Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 
 ---

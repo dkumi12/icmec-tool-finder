@@ -173,7 +173,7 @@ Each tool is scored against your case inputs and displayed as a **match percenta
 | Skill Match | **+8%** | Small boost if the tool matches your technical comfort level. |
 | Urgency | **+4%** | Bonus points for free, instant-access tools during emergencies. |
 
-**Optional hard filters** — coding requirement and interface language remove non-matching tools entirely before scoring. Restricted and law-enforcement-only tools are excluded from results.
+**Optional hard filters** — coding requirement and interface language remove non-matching tools entirely before scoring.
 
 **Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 """)
