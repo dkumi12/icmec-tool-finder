@@ -22,6 +22,10 @@ When an investigator needs a tool for a case, they Google it, ask a colleague, o
 - **George Mwangi**
 - **Thierry Donambi**
 
+**Mentors**
+- **Mahamat**
+- **Luel**
+
 Built for the ICMEC Ishango Hackathon 2026.
 
 ---
