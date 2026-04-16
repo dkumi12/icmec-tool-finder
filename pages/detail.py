@@ -24,6 +24,14 @@ def _save_rating(tool_name, stars):
     data.setdefault(tool_name, []).append(stars)
     _RATINGS_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
+def _remove_rating(tool_name, stars):
+    data = _load_ratings()
+    if tool_name in data and stars in data[tool_name]:
+        data[tool_name].remove(stars)
+        if not data[tool_name]:
+            del data[tool_name]
+    _RATINGS_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
 # ── Check if a tool was selected ─────────────────────────────────────────────
 
 if "selected_tool" not in st.session_state or st.session_state.selected_tool is None:
@@ -91,29 +99,36 @@ st.markdown("### Rate This Tool")
 _all_ratings = _load_ratings()
 _tool_ratings = _all_ratings.get(name, [])
 _rated_key = f"has_rated_{name}"
+_rating_val_key = f"rating_val_{name}"
 
-if _tool_ratings:
-    _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
-    _star_display = "⭐" * round(_avg)
-    rating_left, rating_right = st.columns([2, 3])
-    with rating_left:
+rating_left, rating_right = st.columns([2, 3])
+
+with rating_left:
+    if _tool_ratings:
+        _avg = round(sum(_tool_ratings) / len(_tool_ratings), 1)
+        _star_display = "⭐" * round(_avg)
         st.markdown(f"{_star_display} **{_avg} / 5**")
         st.caption(f"{len(_tool_ratings)} rating(s)")
-    with rating_right:
-        if not st.session_state.get(_rated_key):
-            _user_star = st.feedback("stars", key=f"rating_{name}")
-            if _user_star is not None:
-                _save_rating(name, _user_star + 1)
-                st.session_state[_rated_key] = True
-                st.toast("Rating submitted!", icon="⭐")
-                st.rerun()
-else:
-    st.caption("No ratings yet — be the first.")
-    if not st.session_state.get(_rated_key):
+    else:
+        st.caption("No ratings yet — be the first.")
+
+with rating_right:
+    if st.session_state.get(_rated_key):
+        _submitted_val = st.session_state.get(_rating_val_key, 0)
+        st.caption(f"You rated this {'⭐' * _submitted_val} ({_submitted_val}/5)")
+        if st.button("Remove my rating", key=f"unrate_{name}"):
+            _remove_rating(name, _submitted_val)
+            st.session_state[_rated_key] = False
+            del st.session_state[_rating_val_key]
+            st.toast("Rating removed.", icon="🗑️")
+            st.rerun()
+    else:
         _user_star = st.feedback("stars", key=f"rating_{name}")
         if _user_star is not None:
-            _save_rating(name, _user_star + 1)
+            _stars = _user_star + 1
+            _save_rating(name, _stars)
             st.session_state[_rated_key] = True
+            st.session_state[_rating_val_key] = _stars
             st.toast("Rating submitted!", icon="⭐")
             st.rerun()
 
