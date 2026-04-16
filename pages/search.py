@@ -89,8 +89,6 @@ with form_col:
                 }[x],
             )
 
-        is_le = st.checkbox("I am Law Enforcement / Government", value=False)
-
         st.markdown("##### Optional Filters")
         filter_left, filter_right = st.columns(2)
         with filter_left:
@@ -137,7 +135,7 @@ if submitted:
             skill_level=skill_level,
             input_types=input_types,
             urgency=urgency,
-            is_law_enforcement=is_le,
+            is_law_enforcement=False,
             coding_requirement=coding_requirement,
             languages=languages,
         )

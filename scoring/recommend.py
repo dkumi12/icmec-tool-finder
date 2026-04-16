@@ -54,13 +54,13 @@ def recommend_tools(
         Signal 3: Skill level match          +2 or +0
         Signal 4: Evidence/input type match  +1 per hit, cap +3
         Signal 5: Urgency bonus              +1
-        Access gate:                         -5 if restricted + non-LE
 
     Additional filtering:
+        - Access gate (hard filter: le_only/restricted tools excluded for non-LE users)
         - Coding requirement (hard filter when selected)
         - Language availability (hard filter when selected)
 
-    Score range: -7 to +17 (before optional filters remove tools).
+    Score range: -2 to +17 (before optional filters remove tools).
     """
     # Pre-compute expanded tag sets from user selections
     inv_tags, inp_tags = get_relevant_tags(
@@ -99,8 +99,7 @@ def recommend_tools(
 
         # ── ACCESS GATE ──────────────────────────────────────────
         if tool_access in ("le_only", "restricted") and not query.is_law_enforcement:
-            score -= 5
-            reasons.append("⚠️ Access may be restricted to law enforcement")
+            continue
 
         # ── SIGNAL 1: Investigation type match (+3 per hit, cap +9) ──
         hits = tool_tags & inv_tags

@@ -244,7 +244,8 @@ class TestRecommendTools:
             for reason in r.match_reasons:
                 assert "restricted to law enforcement" not in reason
 
-    def test_non_le_user_gets_access_penalty(self, tools):
+    def test_non_le_user_restricted_tools_excluded(self, tools):
+        """LE-only / restricted tools must not appear at all for non-LE users."""
         query = UserQuery(
             investigation_types=["CSAM detection"],
             budget="paid",
@@ -253,9 +254,13 @@ class TestRecommendTools:
             urgency="immediate",
             is_law_enforcement=False,
         )
-        results = recommend_tools(tools, query, top_n=20)
-        penalised = [r for r in results if any("restricted" in reason for reason in r.match_reasons)]
-        assert len(penalised) > 0
+        results = recommend_tools(tools, query, top_n=len(tools))
+        from scoring.normalise import parse_access
+        restricted_in_results = [
+            r for r in results
+            if parse_access(r.tool.get("access_restrictions") or "") in ("le_only", "restricted")
+        ]
+        assert len(restricted_in_results) == 0
 
     def test_empty_investigation_types(self, tools):
         query = UserQuery(
@@ -389,6 +394,7 @@ class TestScoringEdgeCases:
             skill_level="beginner",
             input_types=[],
             urgency="immediate",
+            is_law_enforcement=True,
         )
         results = recommend_tools([{}], query, top_n=5)
         assert len(results) == 1
@@ -409,6 +415,7 @@ class TestScoringEdgeCases:
             skill_level="beginner",
             input_types=["Image / photo"],
             urgency="immediate",
+            is_law_enforcement=True,
         )
         results = recommend_tools([tool], query, top_n=5)
         assert len(results) == 1
@@ -440,6 +447,7 @@ class TestScoringEdgeCases:
             skill_level="beginner",
             input_types=[],
             urgency="immediate",
+            is_law_enforcement=True,
         )
         results = recommend_tools([{"capability_tags": ["csam_detection"]}], query, top_n=5)
         assert len(results) == 1
@@ -452,6 +460,7 @@ class TestScoringEdgeCases:
             skill_level="beginner",
             input_types=["Alien spaceship"],
             urgency="immediate",
+            is_law_enforcement=True,
         )
         results = recommend_tools([{"capability_tags": ["csam_detection"]}], query, top_n=5)
         assert len(results) == 1
