@@ -37,7 +37,8 @@ Investiqo uses a **transparent, additive scoring engine** — no black-box AI. E
 | **Budget Fit** | +8% | Small boost if the tool is within your price range. |
 | **Skill Match** | +8% | Small boost if the tool matches your technical comfort level. |
 | **Urgency** | +4% | Bonus points for free, instant-access tools during emergencies. |
-| **Access Restriction** | −21% Penalty | Heavy deduction if the tool is for law enforcement and you lack clearance. |
+
+Restricted and law-enforcement-only tools are filtered out entirely and do not appear in results.
 
 **Score Guide:** 🟢 Strong (70%+) · 🟡 Partial (40–69%) · 🔴 Weak (<40%)
 
@@ -66,7 +67,7 @@ Investiqo uses a **transparent, additive scoring engine** — no black-box AI. E
 ├── app.py                      # Streamlit router — registers all pages
 ├── requirements.txt
 ├── data/
-│   ├── tools.json              # 84 curated forensic and OSINT tools
+│   ├── tools.json              # Curated forensic and OSINT tools
 │   ├── tool_enrichment.json    # Extended language and coding metadata (George Mwangi)
 │   ├── ratings.json            # Seed ratings for demo
 │   └── ratings_log.jsonl       # Investigator rating submissions log
@@ -80,7 +81,7 @@ Investiqo uses a **transparent, additive scoring engine** — no black-box AI. E
 │   ├── normalise.py            # Field parsing utilities (pricing, skill, languages)
 │   └── ratings.py              # Community ratings helpers (George Mwangi)
 └── tests/
-    └── test_scoring.py         # 43 unit tests
+    └── test_scoring.py         # 73 unit tests
 ```
 
 ---
