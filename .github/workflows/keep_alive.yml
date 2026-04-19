@@ -2,8 +2,8 @@ name: Keep Alive
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # runs every 30 minutes
-  workflow_dispatch:          # manual trigger for testing
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
 
 jobs:
   ping:
@@ -14,5 +14,5 @@ jobs:
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://investiqo.streamlit.app)
           echo "Response: $STATUS"
           if [ "$STATUS" -ne 200 ]; then
-            echo "App returned $STATUS — may be waking up"
+            echo "App returned $STATUS - may be waking up"
           fi
